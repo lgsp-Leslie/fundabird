@@ -1,0 +1,42 @@
+{% extends 'background/base.html' %}
+{% from 'macro/page_nav.html' import page_nav %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>
+                    Admin List
+                </h1>
+                <table class="table table-hover">
+                    <tr>
+                        <th>No.</th>
+                        <th>Username</th>
+                        <th>User Status</th>
+                        <th>Last Login Time</th>
+                        <th>Operation</th>
+                    </tr>
+                    {% for item in page_data.items %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ item.username }}</td>
+                            <td>{{ item.user_status.value }}</td>
+                            <td>{{ item.updated_at }}</td>
+                            <td>
+                                <a href="{{ item.id }}" class="btn btn-xs btn-success">View</a>
+                                {% if item.user_status == 'USER_IN_ACTIVE' %}
+                                    <a href="{{ item.id }}" class="btn btn-xs btn-info">Enable</a>
+                                {% else %}
+                                    <a href="{{ item.id }}" class="btn btn-xs btn-warning">Disable</a>
+                                {% endif %}
+                                <a href="{{ item.id }}" class="btn btn-xs btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+
+                </table>
+                {{ page_nav(page_data, 'manage.admin_list') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

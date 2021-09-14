@@ -1,0 +1,59 @@
+{% extends 'background/base.html' %}
+{% block title %}
+    User Detail
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="row col-xs-12">
+            <h1>User Detail</h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr>
+                            <th>ID</th>
+                            <td>{{ user.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>User Status</th>
+                            <td>{{ user.user_status.value }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email Status</th>
+                            <td>{{ user.email_status.value }}</td>
+                        </tr>
+                        <tr>
+                            <th>User Role</th>
+                            <td>{{ user.user_role.value }}</td>
+                        </tr>
+                        <tr>
+                            <th>Create Time</th>
+                            <td>{{ user.created_at }}</td>
+                        </tr>
+                        <tr>
+                            <th>Last Login Time</th>
+                            <td>{{ user.updated_at }}</td>
+                        </tr>
+                    </table>
+                </div>
+                <img class="img-circle" src="{{ url_for('static', filename='images/test/test_img.png') }}" alt="">
+            </div>
+            <div class="col-xs-12 col-sm-6">
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        $(() => {
+            $('#m-3').addClass('active');
+        })
+    </script>
+{% endblock %}

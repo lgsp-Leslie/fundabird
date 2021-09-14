@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<!--告诉浏览器准备接受一个 HTML 文档-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<!--默认编码UTF-8-->
+		<meta charset="UTF-8">
+		<!--默认采用webkit模式-->
+		<meta name="renderer" content="webkit" />
+		<!--IE=edge告诉IE使用最新的引擎渲染网页，chrome=1则可以激活Chrome Frame-->
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+		<!--(设置确保适当的绘制和触屏缩放)-->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏-->
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<!--控制状态栏显示样式-->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--手机号码不被显示为拨号链接-->
+		<meta name="format-detection" content="telephone=no" />
+		<!--Email不被显示为发送Email链接-->
+		<meta name="format-detection" content="email=no">
+		<!--关键字-->
+		<meta name="keywords" content="" />
+		<!--描述信息-->
+		<meta name="description" content="" />
+		<!--作者-->
+		<meta name="author" content="lgsp_Harold-Hua">
+		<title>Edit Profile</title>
+		<!--重置部分默认样式-->
+		<link rel="stylesheet" type="text/css" href="../css/normalize.css" />
+		<!--bootstrap框架样式-->
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+		<!--动画样式-->
+		<link rel="stylesheet" type="text/css" href="../css/animate.css" />
+		<!--公共样式-->
+		<!--<link rel="stylesheet" type="text/css" href="../css/google_fonts.css" />-->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../css/global.css" />
+		<!--私有样式-->
+		<link rel="stylesheet" type="text/css" href="../css/edit_profile.css" />
+	</head>
+
+	<body>
+		<header>
+			<nav class="navbar navbar-default">
+				<div class="container">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav" aria-expanded="false">
+			        <span class="glyphicon glyphicon-menu-hamburger"></span>
+			      </button>
+						<a class="navbar-brand" href="index.html">
+							<img src="../img/base/logo.png" />
+						</a>
+					</div>
+
+					<div class="navbar-collapse collapse" id="mainNav">
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="">HOW IT WORK</a>
+							</li>
+							<li>
+								<a href="">OUR FEATURE</a>
+							</li>
+							<li>
+								<a href="">SUPPORT</a>
+							</li>
+							<li>
+								<a href="">POST PROJECT</a>
+							</li>
+							<li>
+								<a href="">EXPLORE</a>
+							</li>
+							<li>
+								<a href="login.html">LOGIN</a>
+							</li>
+							<li class="dropdown">
+								<div>
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+										<img class="img-circle img-responsive" src="../img/test/test_img.png" />
+										<span class="hidden-lg hidden-md">11@gmail.com</span>
+									</a>
+									<ul class="dropdown-menu sign-in">
+										<li>
+											<a href="edit_profile">Edit porfile</a>
+										</li>
+										<li>
+											<a href="">Wish List</a>
+										</li>
+										<li>
+											<a href="">Support Project</a>
+										</li>
+										<li>
+											<a href="">Post Project</a>
+										</li>
+										<li>
+											<a href="">Inbox</a>
+										</li>
+										<li>
+											<a href="">Log out</a>
+										</li>
+									</ul>
+								</div>
+							</li>
+
+						</ul>
+					</div>
+
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<section class="section1">
+				<div class="container">
+					<h1 class="title">Eidt Profile</h1>
+					<div class="wrapper wrapper03" id="wrapper03">
+						<div class="scroller">
+							<ul class="clearfix">
+								<li class="active">
+									<a href="#account_setting" data-toggle="tab">Account setting</a>
+								</li>
+								<li>
+									<a href="#payment_methods" data-toggle="tab">Payment methods</a>
+								</li>
+								<li>
+									<a href="#shipping_address" data-toggle="tab">Shipping address</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active" id="account_setting">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-8">
+									<h2 class="title">Porfile</h2>
+									<div class="user-info">
+										<div class="u-avatar">
+											<img class="img-circle" alt="avatar" src="../img/test/test_img.png" />
+											<div class="upload_btn">
+												<div>
+													<a href="javascript:;" class="file_btn" onclick="openBrowse()">Choose an image from your computer</a>
+													<input type="file" class="hidden" id="fileElem" accept="image/jpg,image/jpeg,image/png">
+												</div>
+												<p>JPEG, PNG, 20MB File Limit</p>
+											</div>
+										</div>
+										<div class="u-cons">
+											<img src="../img/base/cons.png" class="img-circle" />
+											<span>Currently: 100 COINS</span>
+										</div>
+									</div>
+									<div class="update_info">
+										<form method="post">
+											<input class="form-control" type="text" placeholder="Name" />
+											<input class="form-control" type="email" placeholder="Email" />
+											<input class="form-control pull-right" type="submit" value="Save" />
+										</form>
+										<div class="clearfix"></div>
+									</div>
+									<div class="update_pwd">
+										<h2 class="title">Password Change</h2>
+										<form method="post">
+											<input class="form-control" type="password" placeholder="Current Password" />
+											<input class="form-control" type="password" placeholder="New Password" />
+											<input class="form-control" type="password" placeholder="Confirm Password" />
+											<input class="form-control pull-right" type="submit" value="Save" />
+										</form>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-4">
+									<div class="oprate">
+										<p class="sub-title">Privacy</p>
+										<p class="text">
+											<a href="">Opt out of Following</a>
+										</p>
+										<p class="text">
+											<a href="">Turn off recommendations</a>
+										</p>
+										<p class="text">
+											<a href="">Request my personal data</a>
+										</p>
+										<p class="text">
+											<a href="">Opt in to Kickstarter research</a>
+										</p>
+										<br />
+										<p class="sub-title">Facebook</p>
+										<p class="text">
+											<a href="">Disconnect this account from Facebook</a>
+										</p>
+										<br />
+										<p class="sub-title">Security</p>
+										<p class="text">
+											<a href="">Set up two-factor authentication Off</a>
+										</p>
+										<p class="text">
+											<a href="">Log me out on all other devices</a>
+										</p>
+										<br />
+										<p class="sub-title">Delete Account</p>
+										<p class="text">
+											<a href="">Delete my Kickstarter account</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="payment_methods">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-8">
+									<h2 class="title">New Payment</h2>
+									<div class="create_payment">
+										<form method="post">
+											<input class="form-control" type="text" placeholder="Card Number" />
+											<input class="form-control" type="text" placeholder="Name On Card" />
+											<div class="card_code">
+												<input class="form-control" type="text" placeholder="MM/YY" />
+												<input class="form-control" type="text" placeholder="CW" />
+											</div>
+											<input class="form-control" type="text" placeholder="Zip/Postal code" />
+											<input class="form-control pull-right" type="submit" value="Save" />
+										</form>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-4">
+									<h2 class="title">Saved Card</h2>
+									<div class="card_info">
+										<img src="../img/base/Visa.png" class="img-responsive" />
+										<div>
+											<p>Card ending in 7806</p>
+											<p>Expires 10/2022</p>
+										</div>
+										<p><a href="javascript:;">Remove this card</a></p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div role="tabpanel" class="tab-pane" id="shipping_address">
+							<div class="row">
+								<div class="col-xs-12 col-sm-12 col-md-8">
+									<h2 class="title">New Address</h2>
+									<div class="create_address">
+										<form method="post">
+
+											<div class="create_addr">
+												<input class="form-control" type="text" placeholder="First Name" />
+												<input class="form-control" type="text" placeholder="Last Name" />
+											</div>
+											<div class="create_addr">
+												<input class="form-control" type="text" placeholder="Phone Number" />
+												<input class="form-control" type="email" placeholder="Email" />
+											</div>
+											<input class="form-control" type="text" placeholder="Address 1" />
+											<input class="form-control" type="text" placeholder="Address 2" />
+											<div class="create_addr">
+												<input class="form-control" type="text" placeholder="State / Zipcode" />
+												<select class="form-control">
+													<option value="0">Country</option>
+												</select>
+											</div>
+											<input class="form-control pull-right" type="submit" value="Save" />
+										</form>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+
+								<div class="col-xs-12 col-sm-12 col-md-4">
+									<h2 class="title">Saved address</h2>
+									<div class="addr_info">
+										<div>
+											<p>LEI LI</p>
+											<p>1857 Nausika Ave</p>
+											<p>Rowland Heights, CA</p>
+											<p>91748-3140, US</p>
+											<p>6508669332</p>
+										</div>
+										<p><a href="javascript:;">Delete</a></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</section>
+
+		</main>
+		<footer>
+			<hr />
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+						<img class="img-responsive" src="../img/base/logo.png" />
+					</div>
+					<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+						<p class="title">How it work</p>
+						<p>
+							<a href="">How to create a project</a>
+						</p>
+						<p>
+							<a href="">How to support a project</a>
+						</p>
+						<p>
+							<a href="">How to earn Birdie Coin and how it works</a>
+						</p>
+					</div>
+					<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+						<p class="title">Our Feature</p>
+						<p>
+							<a href="">Lorem ipsum dolor </a>
+						</p>
+						<p>
+							<a href="">Lorem ipsum dolor </a>
+						</p>
+					</div>
+					<div class="clearfix visible-xs-block visible-sm-block"></div>
+					<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+						<p class="title">ABOUT US</p>
+						<p>
+							<a href="">Our mission</a>
+						</p>
+						<p>
+							<a href="">Meet the team</a>
+						</p>
+						<p>
+							<a href="">Blog</a>
+						</p>
+					</div>
+					<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+						<p class="title">SUPPORT</p>
+						<p>
+							<a href="">FAQ</a>
+						</p>
+						<p>
+							<a href="">Contact us</a>
+						</p>
+					</div>
+					<div class="clearfix visible-xs-block"></div>
+					<div class="col-xs-12 col-sm-4 col-md-2 col-lg-2">
+						<p class="title">FIND US</p>
+						<p class="text">Phone:89490234</p>
+						<p class="text">Email: ifojas@gamail.com</p>
+						<p class="text">Address: iasudidasdas.dais,la,91748</p>
+						<div class="icon">
+							<a href=""><img class="img-responsive" src="../img/base/Facebook.png" alt="facebook" /></a>
+							<a href=""><img class="img-responsive" src="../img/base/Instagram.png" alt="instagram" /></a>
+							<a href=""><img class="img-responsive" src="../img/base/Twitter.png" alt="twitter" /></a>
+							<a href=""><img class="img-responsive" src="../img/base/Wechat.png" alt="wechat" /></a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+			<hr />
+			<div class="copy_right">
+				<span>Copy right © 2021 FUNDABIRD</span>
+				<span><a href="">Terms of Use</a></span>
+				<span><a href="">Privacy Policy</a></span>
+			</div>
+		</footer>
+		<!--公共js-->
+		<script src="../js/jquery-3.3.1.min.js"></script>
+		<script src="../js/bootstrap.min.js"></script>
+		<script src="../js/global.js"></script>
+		<!--私有js-->
+		<script type="text/javascript" src="../js/flexible.js"></script>
+		<script type="text/javascript" src="../js/iscroll.js"></script>
+		<script type="text/javascript" src="../js/navbarscroll.js"></script>
+
+		<script type="text/javascript">
+			$(function() {
+				$('.wrapper').navbarscroll();
+			});
+		</script>
+
+		<script type="text/javascript">
+			function openBrowse() {
+				var ie = navigator.appName == "Microsoft Internet Explorer" ? true : false;
+				if(ie) {
+					document.getElementById("fileElem").click();
+				} else {
+					var a = document.createEvent("MouseEvents");
+					a.initEvent("click", true, true);
+					document.getElementById("fileElem").dispatchEvent(a);
+				}
+			}
+		</script>
+	</body>
+
+</html>

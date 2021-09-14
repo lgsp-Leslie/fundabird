@@ -1,0 +1,60 @@
+{% from 'macro/form_errors.html' import form_field_errors %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--告诉浏览器准备接受一个 HTML 文档，编码UTF-8-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!--默认采用webkit模式-->
+    <meta name="renderer" content="webkit"/>
+    <!--IE=edge告诉IE使用最新的引擎渲染网页，chrome=1则可以激活Chrome Frame-->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1, shrink-to-fit=no">
+    <!--(设置确保适当的绘制和触屏缩放)-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏-->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!--控制状态栏显示样式-->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!--手机号码不被显示为拨号链接-->
+    <meta name="format-detection" content="telephone=no"/>
+    <!--Email不被显示为发送Email链接-->
+    <meta name="format-detection" content="email=no">
+    {% block metas %}
+        <!--关键字-->
+        <meta name="keywords" content=""/>
+        <!--描述信息-->
+        <meta name="description" content=""/>
+    {% endblock %}
+    <!--作者-->
+    <meta name="author" content="lgsp_Harold-Hua">
+    <title>{% block title %}{% endblock %}</title>
+    <!--重置部分默认样式-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}"/>
+    <!--bootstrap框架样式-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <!--动画样式-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animate.css') }}"/>
+    <!--公共样式-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foreground/global.css') }}"/>
+    <!--私有样式-->
+    {% block css %}{% endblock %}
+</head>
+<body>
+
+{% block layout %}
+    {% include 'components/header.html' %}
+
+    <main class="layout">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% include 'components/footer.html' %}
+{% endblock %}
+
+<!--公共js-->
+<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/foreground/global.js') }}"></script>
+<!--私有js-->
+{% block js %}{% endblock %}
+</body>
+</html>

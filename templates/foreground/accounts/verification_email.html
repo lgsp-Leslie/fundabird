@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>感谢注册</title>
+</head>
+<body>
+<div>
+    感谢您的注册，请点击<a href="{{ url_for('utils.confirm' , user_id=user_id, token=token, _external=True) }}">验证邮箱</a>，完成邮箱验证！
+</div>
+</body>
+</html>
