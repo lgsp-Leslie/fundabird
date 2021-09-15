@@ -39,3 +39,11 @@ class SendEmailType(Enum):
     REGISTER = 'Register'
     # 重置密码
     RESET_PASSWORD = 'Reset Password'
+
+
+class ProductStatus(Enum):
+    """ 商品状态 """
+    # 增加
+    ADD = 'Add'
+    # 下架
+    REMOVE = 'Remove'

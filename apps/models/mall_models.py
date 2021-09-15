@@ -51,3 +51,28 @@ class BankCardInfo(BaseModel):
     user = db.relationship('User', backref='bank_card_info')
 
 
+class ProductTypes(BaseModel):
+    # 商品类型表
+    __tablename__ = 'mall_product_types'
+
+    name = db.Column(db.String(50), nullable=False, comment='类型名称')
+
+
+class GroupDeals(BaseModel):
+    # 团购商品表
+    __tablename__ = 'mall_product_group_deals'
+
+    title = db.Column(db.String(128), nullable=False, comment='商品标题')
+    desc = db.Column(db.String(1024), nullable=False, comment='商品简介')
+    current_price = db.Column(db.Integer, nullable=False, comment='当前价格')
+    historical_price = db.Column(db.Integer, comment='历史价格')
+    discount = db.Column(db.Integer, comment='折扣')
+    total = db.Column(db.Integer, nullable=False, comment='商品总数')
+    start_time = db.Column(db.DateTime, nullable=False, comment='团购开始时间')
+    end_time = db.Column(db.DateTime, nullable=False, comment='团购结束时间')
+    status = db.Column(db.Enum(constants.ProductStatus), default=constants.ProductStatus.ADD, comment='商品状态')
+    source = db.Column(db.String(20), comment='商品来源')
+
+
+
+
