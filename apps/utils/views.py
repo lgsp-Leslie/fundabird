@@ -18,28 +18,23 @@ from config.exts import cache, db
 utils_bp = Blueprint('utils', __name__)
 
 # 钩子函数,检查是否登录账号
-required_login_list = ['/mall/edit_profile']
+required_login_list = ['/manage/index', '/manage/group_deals_list', '/manage/add_product_group_deals', '/manage/product_type_list', '/manage/user_list', '/manage/admin_list']
 
 
 @utils_bp.before_app_request
 def before_request():
     uid = session.get('uid')
     token = session.get('token')
-    if not uid or not token:
-        if request.path in required_login_list:
-            return redirect(url_for('mall.login'))
-        else:
-            g.user = None
-    else:
-        if request.path in required_login_list:
+    if request.path in required_login_list:
+        if not uid or not token:
             try:
                 cache_set_value = cache.get(str(uid))
                 if token not in cache_set_value:
                     session.clear()
                     g.user = None
-                    return redirect(url_for('mall.login'))
+                    return redirect(url_for('manage.login'))
                 else:
-                    user = User.query.get(uid)
+                    user = Admin.query.get(uid)
                     # g对象，本次请求的对象
                     g.user = user
             except Exception as e:
@@ -47,11 +42,7 @@ def before_request():
                 session.clear()
                 g.user = None
                 # flash('Your token has expired, please login again!', 'danger')
-                return redirect(url_for('mall.login'))
-        else:
-            user = User.query.get(uid)
-            # g对象，本次请求的对象
-            g.user = user
+                return redirect(url_for('manage.login'))
 
 
 # 登录验证码
