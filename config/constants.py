@@ -43,7 +43,24 @@ class SendEmailType(Enum):
 
 class ProductStatus(Enum):
     """ 商品状态 """
-    # 增加
-    ADD = 'Add'
-    # 下架
-    REMOVE = 'Remove'
+    # 预热
+    PREHEAT = 'Preheat'
+    # 众筹中
+    CROWD_FUNDING = 'Crowd Funding'
+
+    # 待审核
+    PENDING = 'Pending'
+    # 审核通过
+    APPROVED = 'Approved'
+    # 审核不通过（不可修改）
+    REJECTED = 'Rejected'
+    # 审核不通过（可修改）
+    RESUBMIT = 'Resubmit'
+    # 项目结束
+    FINISH = 'Finish'
+
+
+class OnlineStatus(Enum):
+    # 用户在线状态
+    ONLINE = 'Online'
+    NOT_ONLINE = 'Not Online'

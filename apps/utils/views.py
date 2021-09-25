@@ -8,6 +8,7 @@ from io import BytesIO
 from flask import Blueprint, make_response, session, request, jsonify, render_template, g, redirect, url_for, flash
 
 from apps.models.mall_models import User
+from apps.models.manage_models import Admin
 from apps.utils.utils import get_verify_code, sms_send
 
 # from models import Admin
@@ -17,8 +18,7 @@ from config.exts import cache, db
 utils_bp = Blueprint('utils', __name__)
 
 # 钩子函数,检查是否登录账号
-# required_login_list = ['/mall/register']
-required_login_list = []
+required_login_list = ['/mall/edit_profile']
 
 
 @utils_bp.before_app_request
@@ -82,14 +82,23 @@ def confirm():
         try:
             if cache.get(str('confirm_' + str(user_id))) == token:
                 flash('Your email has been verified!', 'success')
-                user_obj.email_status = constants.EmailStatus.EMAIL_IN_ACTIVE
+                user_obj.email_status = constants.EmailStatus.EMAIL_ACTIVE
                 db.session.commit()
+                cache.delete(str('confirm_' + str(user_id)))
             else:
-                flash('Your email address verification failed. Please log in and resend the verification email!', 'danger')
+                flash('Your email address verification failed. Please log in and resend the verification email!',
+                      'danger')
         except Exception as e:
             flash('Your email verification has expired. Please resend the verification email!', 'danger')
 
     return redirect(url_for('mall.login'))
+
+
+# 格式化银行卡号
+@utils_bp.app_template_filter()
+def card_number_format(card_number):
+    card_number = str(card_number)
+    return card_number[-4:-1]
 
 
 # @utils_bp.route('/send_msg')
@@ -107,17 +116,17 @@ def confirm():
 #     cache.set(mobile_num + '_sms', sms_code, timeout=600)
 #     return jsonify(code=200, msg='短信发送成功')
 # ——————————————————————
-    # json_result = sms_send(mobile_num)
-    # if json_result is not None:
-    #     if json_result['code'] == 200:
-    #         # msg字段表示此次短信发送的sendid；obj字段表示此次发送的验证码
-    #         send_id = json_result['msg'].strip()
-    #         check_code = json_result['obj'].strip()
-    #         session['send_id'] = send_id
-    #         session['phone'] = mobile_num
-    #         session['check_code'] = check_code
-    #         cache.set(mobile_num, check_code, timeout=600)
-    #         return jsonify(code=200, msg='短信发送成功', send_id=send_id)
-    #     else:
-    #         print(json_result)
-    #         return jsonify(code=json_result['code'], msg='短信发送失败')
+# json_result = sms_send(mobile_num)
+# if json_result is not None:
+#     if json_result['code'] == 200:
+#         # msg字段表示此次短信发送的sendid；obj字段表示此次发送的验证码
+#         send_id = json_result['msg'].strip()
+#         check_code = json_result['obj'].strip()
+#         session['send_id'] = send_id
+#         session['phone'] = mobile_num
+#         session['check_code'] = check_code
+#         cache.set(mobile_num, check_code, timeout=600)
+#         return jsonify(code=200, msg='短信发送成功', send_id=send_id)
+#     else:
+#         print(json_result)
+#         return jsonify(code=json_result['code'], msg='短信发送失败')

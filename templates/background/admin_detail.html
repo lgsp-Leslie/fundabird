@@ -1,0 +1,109 @@
+{% extends 'background/base.html' %}
+{% block title %}
+    Admin Detail
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background/swiper.min.css') }}">
+    <!--Page Specific -->
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='css/background/nice-select.min.css') }}">
+{% endblock %}
+
+
+{% block content %}
+    <!-- Page Title Start -->
+    <div class="row">
+        <div class="col xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="page-title-wrapper">
+                <div class="page-title-box">
+                    <h4 class="page-title">Admin Profile</h4>
+                </div>
+                <div class="breadcrumb-list">
+                    <ul>
+                        <li class="breadcrumb-link">
+                            <a href="javascript:void(0);"><i class="fas fa-home mr-2"></i>Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-link active">Admin Profile</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Products view Start -->
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card">
+                <grammarly-extension data-grammarly-shadow-root="true" style="position: absolute; top: 0px; left: 0px; pointer-events: none;" class="cGcvT"></grammarly-extension>
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Admin Profile</h4>
+                    <div class="card-options">
+                        <a class="card-options-collapse" href="javascript:;" data-bs-toggle="card-collapse" data-bs-original-title="" title="">
+                            <i class="fe fe-chevron-up"></i>
+                        </a>
+                        <a class="card-options-remove" href="javascript:;" data-bs-toggle="card-remove" data-bs-original-title="" title="">
+                            <i class="fe fe-x"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="profile-title">
+                        <div class="media ad-profile2-img">
+                            {% if admin.avatar %}
+                                <img alt=""
+                                     src="{{ url_for('static', filename='uploads/user/avatar/' + admin.avatar) }}">
+                            {% else %}
+                                <img alt="" src="../../static/images/background/base/4.jpg">
+                            {% endif %}
+                            <div class="media-body">
+                                <h5 class="mb-1">{{ admin.username }}</h5>
+                                <p>{{ admin.user_role.value }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">User-ID：</label>
+                        <label class="form-label">{{ admin.id }}</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">User-Status：</label>
+                        {% if admin.user_status.value == 'Enable' %}
+                            <label class="mb-0 badge badge-primary" title="Enable">Enable</label>
+                        {% else %}
+                            <label class="mb-0 badge badge-danger" title="Disable">Disable</label>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Create Time：</label>
+                        <label class="form-label">{{ admin.created_at }}</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Last Log In Time：</label>
+                        <label class="form-label">{{ admin.updated_at }}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <form class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">Operate Detail</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <h5>Audit items</h5>
+                                <div>
+xxxxxxxxxxxxxxxxxxxxxxx
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

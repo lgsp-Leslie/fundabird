@@ -44,7 +44,7 @@ hr {
 	width: 270px;
 	vertical-align: bottom;
 	overflow: hidden;
-	word-break: keep-all;
+	
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
@@ -197,7 +197,7 @@ hr {
 .section1 .o-summry div.o-info div span:first-child {
 	width: 256px;
 	overflow: hidden;
-	word-break: keep-all;
+	
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }

@@ -40,3 +40,15 @@ class SendEmail(db.Model):
     username = db.Column(db.String(50), nullable=False, comment='邮箱账号')
     password = db.Column(db.String(256), nullable=False, comment='邮箱密码/授权码')
     use_type = db.Column(db.Enum(constants.SendEmailType), default=constants.SendEmailType.NONE, comment='用途')
+
+
+class NationalCity(db.Model):
+    # 国家城市表
+    __tablename__ = 'config_national_city'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    national = db.Column(db.String(20), nullable=False, comment='国家')
+    state_full = db.Column(db.String(20), comment='州')
+    state_short = db.Column(db.String(20), nullable=False, comment='州(简称)')
+    county = db.Column(db.String(20), nullable=False, comment='县')
+    city = db.Column(db.String(20), nullable=False, comment='城市')

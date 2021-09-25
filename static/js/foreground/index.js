@@ -16,26 +16,18 @@ var section2_swiper = new Swiper('.section2-swiper', {
 var group_deals_swiper = new Swiper('.group-deals', {
     slidesPerView: 2,
     spaceBetween: 20,
+    width: 1200,
     breakpoints: {
-        640: {
-            slidesPerView: 2,
+        375: {
+            slidesPerView: 1,
             spaceBetween: 20,
-            centeredSlides: true,
+            width: 340,
         },
         768: {
             slidesPerView: 2,
             spaceBetween: 20,
-            centeredSlides: true,
-        },
-        1024: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-            centeredSlides: true,
-        },
-        1280: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-        },
+            width: 1200,
+        }
     }
 });
 

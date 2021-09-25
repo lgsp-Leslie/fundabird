@@ -1,0 +1,100 @@
+hr {
+	margin-top: 25px;
+	margin-bottom: 40px;
+	border-color: #000;
+}
+
+.section1 h1.title {
+	margin-top: 50px;
+	margin-bottom: 25px;
+	font-weight: bold;
+	font-size: 36px;
+	line-height: 44px;
+	color: #000000;
+}
+
+.section1 div.row div.wrap {
+	margin-bottom: 30px;
+	border-radius: 14px;
+	border: 1px solid #F4F3F3;
+	box-shadow: 0px 2px 40px rgba(216, 216, 216, 0.5);
+	overflow: hidden;
+}
+
+.section1 .img_wrap img {
+	margin: 0 auto 25px;
+	height: 180px;
+}
+
+.section1 .text_wrap {
+	padding: 0 10px 20px;
+}
+
+.section1 p.title {
+	margin-bottom: 16px;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 24px;
+	color: #0C0C0C;
+	overflow: hidden;
+	
+	white-space: pre-wrap;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	word-wrap:break-word;
+}
+
+.section1 p.text {
+	margin-bottom: 33px;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+	color: #0C0C0C;
+	overflow: hidden;
+	
+	white-space: pre-wrap;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	word-wrap:break-word;
+}
+
+.section1 div.edit {
+	display: flex;
+	justify-content: space-between;
+}
+
+.section1 div.edit span {
+	padding: 3px 10px;
+	border-radius: 7px;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+	color: #FFFFFF;
+}
+
+.section1 div.edit span.approved {
+	background-color: #3BD95C;
+}
+
+.section1 div.edit span.rejected {
+	background-color: #D93B3B;
+}
+
+.section1 div.edit span.pending {
+	background-color: #3B61D9;
+}
+
+.section1 div.edit span.resubmit {
+	background-color: #FDCD07;
+}
+
+.section1 div.edit a {
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 24px;
+	color: #0C0C0C;
+}

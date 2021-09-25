@@ -70,9 +70,11 @@
 	width: 100px;
 	height: 40px;
 }
+
 .section1 .policy {
 	margin-bottom: 0;
 }
+
 .section1 .policy a {
 	text-decoration: underline;
 }
@@ -89,7 +91,6 @@
 	margin-top: 9px;
 	margin-bottom: 31px;
 }
-
 
 @media only screen and (max-width: 640px) {
 	.section1 h1.title {

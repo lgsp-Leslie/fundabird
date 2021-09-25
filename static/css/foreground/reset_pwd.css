@@ -13,7 +13,7 @@
 	width: 270px;
 	vertical-align: bottom;
 	overflow: hidden;
-	word-break: keep-all;
+	
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }

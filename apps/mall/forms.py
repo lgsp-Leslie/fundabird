@@ -4,7 +4,7 @@
 import uuid
 from time import time
 
-from flask import session, g
+from flask import session
 from flask_wtf import FlaskForm
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import validators, ValidationError, SubmitField, PasswordField

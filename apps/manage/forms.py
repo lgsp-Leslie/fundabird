@@ -18,35 +18,35 @@ class LoginForm(FlaskForm):
     """登录表单"""
     username = StringField('Username', validators=[validators.DataRequired('Username field cannot be blank!')],
                            render_kw={
-                               'class': 'form-control',
+                               'class': 'ad-input',
                                'placeholder': 'Username',
                                'required': 'required'
                            })
     password = PasswordField('Password', validators=[validators.DataRequired('Password field cannot be blank!')],
                              render_kw={
-                                 'class': 'form-control',
+                                 'class': 'ad-input',
                                  'placeholder': 'Password',
                                  'required': 'required'
                              })
-    verify_code = StringField('Verify Code', validators=[validators.DataRequired('Verify Code field cannot be blank!')],
-                              render_kw={
-                                  'class': 'form-control',
-                                  'placeholder': 'Verify Code',
-                                  'required': 'required'
-                              })
-    submit = SubmitField(label='Sign Up', render_kw={
-        'class': 'btn btn-block',
+    # verify_code = StringField('Verify Code', validators=[validators.DataRequired('Verify Code field cannot be blank!')],
+    #                           render_kw={
+    #                               'class': 'form-control',
+    #                               'placeholder': 'Verify Code',
+    #                               'required': 'required'
+    #                           })
+    submit = SubmitField(label='Login', render_kw={
+        'class': 'ad-btn ad-login-member',
     })
 
     def validate(self):
         result = super().validate()
         username = self.username.data
         pwd = self.password.data
-        verify_code = self.verify_code.data
+        # verify_code = self.verify_code.data
         if result:
-            if session.get('verify_code') and session.get('verify_code').lower() != verify_code.lower():
-                result = False
-                self.verify_code.errors = ['Your verify code is incorrect!']
+            # if session.get('verify_code') and session.get('verify_code').lower() != verify_code.lower():
+            #     result = False
+            #     self.verify_code.errors = ['Your verify code is incorrect!']
             user_obj = Admin.query.filter_by(username=username).first()
             if user_obj is None:
                 result = False

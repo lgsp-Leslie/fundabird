@@ -1,0 +1,228 @@
+{% extends 'background/base.html' %}
+{% block title %}
+    User Detail
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background/swiper.min.css') }}">
+    <!--Page Specific -->
+    <link rel="stylesheet" type="text/css"
+          href="{{ url_for('static', filename='css/background/nice-select.min.css') }}">
+{% endblock %}
+
+
+{% block content %}
+    <!-- Page Title Start -->
+    <div class="row">
+        <div class="col xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="page-title-wrapper">
+                <div class="page-title-box">
+                    <h4 class="page-title">User Profile</h4>
+                </div>
+                <div class="breadcrumb-list">
+                    <ul>
+                        <li class="breadcrumb-link">
+                            <a href="javascript:void(0);"><i class="fas fa-home mr-2"></i>Dashboard</a>
+                        </li>
+                        <li class="breadcrumb-link active">User Profile</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Products view Start -->
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card">
+                <grammarly-extension data-grammarly-shadow-root="true"
+                                     style="position: absolute; top: 0px; left: 0px; pointer-events: none;"
+                                     class="cGcvT"></grammarly-extension>
+                <div class="card-header">
+                    <h4 class="card-title mb-0">User Profile</h4>
+                    <div class="card-options"><a class="card-options-collapse" href="javascript:;"
+                                                 data-bs-toggle="card-collapse" data-bs-original-title="" title=""><i
+                            class="fe fe-chevron-up"></i></a><a class="card-options-remove" href="javascript:;"
+                                                                data-bs-toggle="card-remove" data-bs-original-title=""
+                                                                title=""><i class="fe fe-x"></i></a></div>
+                </div>
+                <div class="card-body">
+                    <div class="profile-title">
+                        <div class="media ad-profile2-img">
+                            {% if user.avatar %}
+                                <img alt=""
+                                     src="{{ url_for('static', filename='uploads/user/avatar/' + user.avatar) }}">
+                            {% else %}
+                                <img class="img-circle" alt="" src="{{ url_for('static', filename='images/background/base/4.jpg') }}">
+                            {% endif %}
+                            <div class="media-body">
+                                <h5 class="mb-1">{{ user.email }}</h5>
+                                <p>{{ user.user_role.value }}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">User-ID：</label>
+                        <label class="form-label">{{ user.id }}</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">User-Status：</label>
+                        {% if user.user_status.value == 'Enable' %}
+                            <label class="mb-0 badge badge-primary" title="Enable">Enable</label>
+                        {% else %}
+                            <label class="mb-0 badge badge-danger" title="Disable">Disable</label>
+                        {% endif %}
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email-Address：</label>
+                        <label class="form-label">{{ user.email }}</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email-Status：</label>
+                        {% if user.email_status.value == 'Verified' %}
+                            <label class="mb-0 badge badge-primary" title="Enable">Verified</label>
+                        {% else %}
+                            <label class="mb-0 badge badge-danger" title="Disable">Not Verified</label>
+                        {% endif %}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Donations：</label>
+                        <label class="form-label">{{ user.donations }}</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">coins：</label>
+                        <label class="form-label">{{ user.coins }}</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Create Time：</label>
+                        <label class="form-label">{{ user.created_at }}</label>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Last Log In Time：</label>
+                        <label class="form-label">{{ user.updated_at }}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <form class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">User Detail</h4>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <h5>Shipping Address</h5>
+                                <div>
+                                    {% for addr in user.shipping_address %}
+                                    <p class="form-label mt-2">{{ loop.index }} 、 {{ addr.first_name }} {{ addr.last_name }} - {{ addr.country }} - {{ addr.address1 }} {{ addr.address2 | default('') }} - {{ addr.zipcode }}</p>
+                                    {% endfor %}
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="mb-3">
+                                <h5>Bank Card Info</h5>
+                                <div>
+                                    {% for card in user.bank_card_info %}
+                                    <p class="form-label mt-2">{{ loop.index }} 、 {{ card.card_name }} - {{ card.card_number }} - {{ card.card_exp }}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="card table-card">
+                <div class="card-header pb-0">
+                    <h4>Add Projects</h4>
+                </div>
+                <div class="card-body">
+                    <div class="chart-holder">
+                        <div class="table-responsive">
+                            <table class="table table-styled mb-0">
+                                <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Project Type</th>
+                                    <th>Create Date</th>
+                                    <th>Status</th>
+                                    <th>Start Time</th>
+                                    <th>End Time</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for item in user.product.items %}
+                                <tr>
+                                    <td>{{ item.title }}</td>
+                                    <td>{{ item.product_type }}</td>
+                                    <td>{{ item.created_at }}</td>
+                                    <td>{{ item.status }}</td>
+                                    <td>{{ item.start_time }}</td>
+                                    <td>{{ item.end_time }}</td>
+                                    <td class="relative">
+                                        <a class="action-btn " href="javascript:void(0); ">
+                                            <svg class="default-size " viewbox="0 0 341.333 341.333 ">
+                                                <g>
+                                                    <g>
+                                                        <g>
+                                                            <path d="M170.667,85.333c23.573,0,42.667-19.093,42.667-42.667C213.333,19.093,194.24,0,170.667,0S128,19.093,128,42.667 C128,66.24,147.093,85.333,170.667,85.333z "></path>
+                                                            <path d="M170.667,128C147.093,128,128,147.093,128,170.667s19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 S194.24,128,170.667,128z "></path>
+                                                            <path d="M170.667,256C147.093,256,128,275.093,128,298.667c0,23.573,19.093,42.667,42.667,42.667s42.667-19.093,42.667-42.667 C213.333,275.093,194.24,256,170.667,256z "></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </a>
+                                        <div class="action-option ">
+                                            <ul>
+                                                <li>
+                                                    <a href="{{ item.id }}"><i class="far fa-edit mr-2 "></i>Edit</a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ item.id }}"><i
+                                                            class="far fa-trash-alt mr-2 "></i>Delete</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </td>
+                                </tr>
+                               {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{#<p id="email_msg" class="text-success text-danger"></p>#}
+{#<script>#}
+{#        $('#update_email').click(function () {#}
+{#            let email = $('#email').val();#}
+{#            let p_ele = $("#email_msg");#}
+{#            alert('22')#}
+{#            $.get(#}
+{#                "{{ url_for('mall.modify_email') }}",#}
+{#                {#}
+{#                    email: email#}
+{#                },#}
+{#                function (data) {#}
+{#                    if (data.code !== 200) {#}
+{#                        p_ele.removeClass('text-success')#}
+{#                    } else {#}
+{#                        p_ele.removeClass('text-danger')#}
+{#                    }#}
+{#                    p_ele.text(data.msg)#}
+{#                }#}
+{#            )#}
+{#        })#}
+{#    </script>#}

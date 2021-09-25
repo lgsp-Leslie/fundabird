@@ -1,0 +1,243 @@
+hr {
+	margin-top: 25px;
+	margin-bottom: 40px;
+	border-color: #000;
+}
+
+.section1 div.row {
+	margin-bottom: 40px;
+}
+
+.section1 h1 {
+	margin-top: 50px;
+	font-weight: bold;
+	font-size: 36px;
+	line-height: 44px;
+	color: #000000;
+}
+
+.section1 p.title,
+.section2 p.title {
+	margin-bottom: 33px;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 29px;
+	color: #000000;
+}
+
+.section1 div.wrap-item {
+	margin-bottom: 25px;
+	display: flex;
+	justify-content: space-between;
+	box-shadow: 0px 2px 40px rgba(216, 216, 216, 0.5);
+}
+
+.section1 div.wrap-item>.wrap_left,
+.section1 div.wrap-item>.wrap_right {
+	height: 260px;
+	overflow: hidden;
+}
+
+.section1 div.wrap-item>div.wrap_left {
+	width: 220px;
+	padding-right: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	border-radius: 14px 0 0 14px;
+}
+
+.section1 div.wrap-item>div.wrap_left img {
+	margin: auto;
+}
+
+.section1 div.wrap-item>div.wrap_right {
+	width: 366px;
+	border-radius: 0 14px 14px 0;
+	padding-left: 10px;
+}
+
+.section1 h3.title,
+.section2 h3.title {
+	margin-top: 14px;
+	margin-bottom: 10px;
+	width: 95%;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 24px;
+	height: 48px;
+	overflow: hidden;
+	white-space: pre-wrap;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	word-wrap: break-word;
+}
+
+.section1 p.text,
+.section2 p.text {
+	margin-bottom: 7px;
+	width: 95%;
+	font-size: 14px;
+	line-height: 18px;
+	height: 54px;
+	overflow: hidden;
+	white-space: pre-wrap;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	word-wrap: break-word;
+}
+
+.section1 div.money {
+	margin-bottom: 6px;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.section1 div.money>div:first-child {
+	margin-right: 20px;
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 42px;
+	color: #0C0C0C;
+}
+
+.section1 div.money>div>p {
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 18px;
+	color: #999;
+}
+
+.section1 div.money>div>span.label {
+	background-color: #D93B3B;
+	color: #FFF;
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: normal;
+}
+
+.section1 div.progress {
+	margin-bottom: 7px;
+	width: 95%;
+	height: 4px;
+}
+
+.section1 div.progress .progress-bar {
+	background-color: #3B61D9;
+}
+
+.section1 div.time {
+	margin-bottom: 12px;
+	width: 95%;
+	display: flex;
+	justify-content: space-between;
+	color: #000000;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.section1 p.source {
+	margin-bottom: 6px;
+	color: #9C9C9C;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.section2 .wrap-item {
+	margin-bottom: 25px;
+	box-shadow: 0px 2px 40px rgba(216, 216, 216, 0.5);
+	border-radius: 14px;
+	overflow: hidden;
+}
+
+.section2 .wrap-item div.img {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 180px;
+	border-radius: 14px 14px 0 0;
+	overflow: hidden;
+}
+
+.section2 .wrap-item div.img img {
+	margin: auto;
+}
+
+.section2 .wrap-item div.content {
+	padding: 0 10px;
+}
+
+.section2 div.money {
+	margin-bottom: 18px;
+	display: flex;
+	justify-content: space-between;
+	width: 95%;
+	font-weight: bold;
+	font-size: 36px;
+	line-height: 44px;
+	color: #0C0C0C;
+}
+
+.section2 div.money span {
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+	color: #808080;
+}
+
+.section2 div.money span.glyphicon {
+	color: #3BD95C;
+	font-size: 12px;
+}
+
+.section2 div.progress {
+	margin-bottom: 5px;
+	width: 95%;
+	height: 4px;
+}
+
+.section2 div.progress .progress-bar {
+	background-color: #3BD95C;
+}
+
+.section2 .schedule {
+	margin-bottom: 15px;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+	color: #0C0C0C;
+}
+
+.section2 .time {
+	margin-bottom: 14px;
+	display: flex;
+	justify-content: space-between;
+	width: 95%;
+	color: #919191;
+	line-height: 18px;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+@media only screen and (max-width: 800px) {
+	.section1 div.wrap-item>.wrap_left, .section1 div.wrap-item>.wrap_right {
+		height: auto;
+	}
+	.section1 div.wrap-item {
+		border-radius: 14px;
+		flex-wrap: wrap;
+		justify-content: center;
+		overflow: hidden;
+	}
+	.section1 div.wrap-item>div.wrap_left {
+		width: 100%;
+		overflow: hidden;
+		border-radius: 14px 14px 0 0;
+	}
+}

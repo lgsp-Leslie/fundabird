@@ -28,11 +28,11 @@
     <meta name="author" content="lgsp_Harold-Hua">
     <title>{% block title %}{% endblock %}</title>
     <!--重置部分默认样式-->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/normalize.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foreground/normalize.css') }}"/>
     <!--bootstrap框架样式-->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/foreground/bootstrap.min.css') }}">
     <!--动画样式-->
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animate.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foreground/animate.css') }}"/>
     <!--公共样式-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foreground/global.css') }}"/>
     <!--私有样式-->
@@ -41,19 +41,20 @@
 <body>
 
 {% block layout %}
-    {% include 'components/header.html' %}
+    {% include 'foreground/components/header.html' %}
 
     <main class="layout">
         {% block content %}{% endblock %}
     </main>
 
-    {% include 'components/footer.html' %}
+    {% include 'foreground/components/footer.html' %}
 {% endblock %}
 
 <!--公共js-->
-<script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/foreground/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/foreground/bootstrap.min.js') }}"></script>
 <script src="{{ url_for('static', filename='js/foreground/global.js') }}"></script>
+
 <!--私有js-->
 {% block js %}{% endblock %}
 </body>

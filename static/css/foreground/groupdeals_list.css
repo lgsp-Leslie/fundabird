@@ -1,0 +1,193 @@
+.section1 .breadcrumb {
+	margin-bottom: 30px;
+	background-color: transparent;
+	padding: 50px 0 0;
+}
+
+.section1 .breadcrumb a {
+	color: #D8D8D8;
+}
+
+.section1 .breadcrumb .active {
+	color: #0C0C0C;
+	width: 270px;
+	vertical-align: bottom;
+	overflow: hidden;
+	
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.section1 h1.title {
+	margin-top: 0;
+	margin-bottom: 62px;
+	font-weight: bold;
+	line-height: 44px;
+	color: #0C0C0C;
+}
+
+.section1 .item {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+}
+
+.section1 .item_wrap {
+	margin-right: 38px;
+	margin-bottom: 50px;
+	/*width: 586px;*/
+	width: 48%;
+	font-size: 18px;
+	background: #fff;
+	border: 1px solid #F4F3F3;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	border-radius: 14px;
+	box-shadow: 0px 2px 40px rgba(216, 216, 216, 0.5);
+	box-shadow: 2px 2px 12px rgba(216, 216, 216, 0.5);
+	box-shadow: 10px 10px 20px rgba(216, 216, 216, 0.5);
+	overflow: hidden;
+}
+
+.section1 .img_wrap {
+	min-height: 260px;
+	padding-right: 4px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.section1 h3.title {
+	margin-top: 14px;
+	margin-bottom: 10px;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 24px;
+	height: 48px;
+	overflow: hidden;
+	
+	white-space: pre-wrap;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	word-wrap:break-word;
+}
+
+.section1 p.text {
+	margin-bottom: 7px;
+	width: 95%;
+	font-size: 14px;
+	line-height: 18px;
+	height: 54px;
+	overflow: hidden;
+	
+	white-space: pre-wrap;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	word-wrap:break-word;
+}
+
+.section1 div.money {
+	margin-bottom: 6px;
+	display: flex;
+	justify-content: flex-start;
+}
+
+.section1 div.money>div:first-child {
+	margin-right: 20px;
+	font-size: 36px;
+	font-weight: 600;
+	line-height: 42px;
+	color: #0C0C0C;
+}
+
+.section1 div.money>div>p {
+	margin-bottom: 0;
+	font-size: 14px;
+	line-height: 18px;
+	color: #999;
+}
+
+.section1 div.money>div>span.label {
+	background-color: #D93B3B;
+	color: #FFF;
+	font-size: 12px;
+	line-height: 14px;
+	font-weight: normal;
+}
+
+.section1 div.progress {
+	margin-bottom: 7px;
+	width: 95%;
+	height: 4px;
+}
+
+.section1 div.progress .progress-bar {
+	background-color: #3B61D9;
+}
+
+.section1 div.time {
+	margin-bottom: 12px;
+	width: 95%;
+	display: flex;
+	justify-content: space-between;
+	color: #000000;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.section1 p.source {
+	margin-bottom: 6px;
+	color: #9C9C9C;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.section1 a.load-more__btn {
+	margin-top: 35px;
+	display: block;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+	color: #000000;
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1367px) {
+.section1 .item_wrap {
+	width: 48%;
+	margin-right: 32px;
+}
+}
+
+@media only screen and (max-width: 1023px) {
+	.section1 .item_wrap {
+		margin-left: auto;
+		margin-right: auto;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 640px) {
+	.section1 h1.title {
+		font-size: 26px;
+	}
+	.section1 div.time {
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+}
