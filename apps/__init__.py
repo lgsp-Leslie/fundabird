@@ -10,7 +10,6 @@ from config.exts import cors, cache, migrate, mail
 
 from apps.models import *
 
-from apps.mall.views import mall_bp
 from apps.utils.views import utils_bp
 
 
@@ -33,7 +32,6 @@ def create_app():
 
     # 注册蓝图
     app.register_blueprint(utils_bp, url_prefix='/utils')
-    app.register_blueprint(mall_bp, url_prefix='/mall')
     app.register_blueprint(manage_bp, url_prefix='/manage')
 
     return app
