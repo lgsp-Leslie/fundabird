@@ -1,0 +1,1206 @@
+.section1 .breadcrumb {
+    margin-bottom: 30px;
+    background-color: transparent;
+    padding: 50px 0 0;
+}
+
+.section1 .breadcrumb a {
+    color: #D8D8D8;
+}
+
+.section1 .breadcrumb .active {
+    color: #0C0C0C;
+    width: 270px;
+    vertical-align: bottom;
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.section1 div.row {
+    margin-bottom: 95px;
+}
+
+.section1 h1.title {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: bold;
+    line-height: 44px;
+}
+
+.section1 div .carousel-indicators li {
+    background: #D8D8D8;
+}
+
+.section1 div .carousel-indicators li.active {
+    background: #6A6A6A;
+    border: none;
+    width: 10px;
+    height: 10px;
+}
+
+.section1 div.carousel-inner .item {
+    height: 400px;
+}
+
+.section1 div.carousel-inner .item img {
+    margin: 0 auto;
+    height: 100%;
+}
+
+.section1 p.text {
+    margin-bottom: 25px;
+    height: 72px;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #0C0C0C;
+    overflow: hidden;
+
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    word-wrap: break-word;
+}
+
+.section1 .wish_list {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section1 .wish_list a:first-child {
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: normal;
+    text-decoration-line: underline;
+    color: #3B61D9;
+}
+
+.section1 .wish_list p.money {
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.section1 .wish_list a:last-child span {
+    margin-right: 10px;
+    padding: 6px;
+    font-size: 12px;
+    background-color: #F5F5F5;
+    border-radius: 50%;
+    color: #FF4444;
+}
+
+.section1 div.progress {
+    margin-bottom: 7px;
+    height: 4px;
+}
+
+.section1 div.progress .progress-bar {
+    background-color: #3B61D9;
+}
+
+.section1 div.time {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.section1 .secure_btn {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section1 .secure_btn a {
+    width: 180px;
+    text-align: center;
+    border-radius: 14px;
+    color: #FFF;
+    line-height: 30px;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 24px;
+    display: block;
+}
+
+.section1 .secure_btn a.sell_btn {
+    background-color: #D93B3B;
+}
+
+.section1 .secure_btn a.buy_btn {
+    background-color: #3BD95C;
+}
+
+.section1 .support_btn a {
+    background-color: #3B61D9;
+    text-align: center;
+    border-radius: 14px;
+    color: #FFF;
+    line-height: 30px;
+    padding: 15px 0;
+    font-weight: bold;
+    font-size: 24px;
+    display: block;
+}
+
+.section1 .secure_btn p.price {
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.section1 .secure_btn p.trend {
+    text-align: center;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #808080;
+}
+
+.section1 .secure_btn p.trend span {
+    margin-right: 9px;
+    color: #3BD95C;
+}
+
+.section1 hr {
+    margin-top: 22px;
+    margin-bottom: 16px;
+    border-color: #000;
+}
+
+.section1 .buy {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section1 .buy div {
+    display: flex;
+    justify-content: flex-start;
+    line-height: 42px;
+}
+
+.section1 .buy div img {
+    margin-right: 10px;
+    height: 42px;
+    width: 42px;
+}
+
+.section1 .buy div p {
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 14px;
+    color: #000000;
+}
+
+.section1 .buy div p a.coins {
+    text-decoration: underline;
+}
+
+.section1 .buy a {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 42px;
+    color: #000000;
+}
+
+.section2 .clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.section2 .clearfix {
+    *zoom: 1;
+    padding-inline-start: 0;
+}
+
+.section2 .wrapper03 {
+    position: relative;
+    height: 30px;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto 50px;
+    border-top: 1px solid #000
+}
+
+.section2 .wrapper03 .scroller {
+    position: absolute;
+    width: 960px !important;
+}
+
+.section2 .wrapper03 .scroller li {
+    list-style: none;
+    height: 30px;
+    color: #000;
+    float: left;
+    line-height: 22px;
+    font-size: 18px;
+    text-align: center
+}
+
+.section2 .wrapper03 .scroller li a {
+    border-top: 3px solid #FFF;
+    font-family: "Montserrat", sans-serif;
+    color: #000;
+    display: block;
+    margin-right: 67px;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.section2 .wrapper03 .scroller li.cur a {
+    color: #000;
+    height: 30px;
+}
+
+.section2 .wrapper03 .scroller li.active a {
+    border-top: 3px solid #000;
+    font-weight: bold;
+}
+
+.section2 #comments .logout {
+    padding: 9px 0;
+    background-color: #F7F7F7;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+.section2 #comments .logout a {
+    text-decoration: underline;
+}
+
+.section2 #comments .login {
+    position: relative;
+}
+
+.section2 #comments .login textarea {
+    padding-bottom: 50px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    resize: none;
+}
+
+.section2 #comments .login a.post_btn {
+    top: 50%;
+    left: 50%;
+    margin-top: 4px;
+    margin-left: -82px;
+    position: absolute;
+    padding: 9px 20px;
+    background-color: #3B61D9;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+.section2 .r-item {
+    margin-top: 52px;
+}
+
+.section2 .user-operate {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section2 #comments .user-avatar {
+    position: relative;
+}
+
+.section2 #comments .user-avatar .circle {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    background-color: #3B61D9;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.section2 #comments .user-operate > div {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.section2 #comments .user-operate div.user-avatar {
+    margin-right: 15px;
+}
+
+.section2 #comments .user-operate div.user-avatar img {
+    width: 40px;
+    height: 40px;
+}
+
+.section2 #comments .user-operate > div.user-info p {
+    margin-bottom: 2px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.section2 #comments .user-username {
+    margin-bottom: 2px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+
+.section2 #comments .user-time {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #A7A7A7;
+}
+
+.section2 #comments .user-operate > div.user-info p.user-username {
+    color: #000000;
+}
+
+.section2 #comments .user-operate > div.user-info p.user-time {
+    color: #A7A7A7;
+}
+
+.section2 #comments .user-operate a {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+
+.section2 #comments .user-operate + hr {
+    border-top-color: #000;
+}
+
+.section2 #comments p.r-text {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+
+.section2 #comments .r-item hr:last-child {
+    margin-top: 28px;
+    margin-bottom: 29px;
+    border-top-color: rgba(0, 0, 0, 0.15);
+}
+
+.section2 #comments .r-info {
+    margin-bottom: 42px;
+}
+
+.section2 #comments .bg-grey {
+    margin-left: 50px;
+    padding: 10px 8px;
+    background: #F7F7F7;
+    border-radius: 6px;
+}
+
+.section2 #comments a.load-more__btn,
+.section2 #updates a.load-more__btn {
+    margin-top: 35px;
+    display: block;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+.section2 #updates .item {
+    margin-bottom: 92px;
+}
+
+.section2 #updates .user-info,
+.section2 #updates .user-info > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section2 #updates .user-avatar {
+    position: relative;
+}
+
+.section2 #updates .user-avatar img {
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+}
+
+.section2 #updates .user-avatar .circle {
+    position: absolute;
+    top: 2px;
+    right: 15px;
+    background-color: #3B61D9;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.section2 #updates .identity p {
+    margin-bottom: 6px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+}
+
+.section2 #updates .u-date {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+}
+
+.section2 #area-chart {
+    width: 790px;
+    height: 420px;
+}
+
+.section2 #history .btn-group .btn {
+    padding: 6px 22px;
+    background-color: #E1E1E1;
+    border-radius: 6px;
+}
+
+.section2 #history .btn-group .btn.active {
+    background-color: #000000;
+    color: #FFF;
+}
+
+.section2 .screen-sales,
+.section2 .more_price {
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section2 .screen-sales a {
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 33px;
+    color: #000000;
+}
+
+.section2 #faq p.text {
+    margin-bottom: 26px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.section2 #faq .panel-title a {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+}
+
+.section2 #faq .panel-body {
+    padding-left: 24px;
+    font-style: italic;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+}
+
+.section2 #faq .panel-group .panel-heading + .panel-collapse > .list-group {
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.section2 #faq .panel-group .panel-heading + .panel-collapse > .panel-body {
+    border-top: none;
+}
+
+.section2 #updates p.sub-title {
+    margin-bottom: 12px;
+}
+
+.section2 #updates hr {
+    margin-top: 12px;
+    margin-bottom: 22px;
+    border-color: #000;
+}
+
+.section2 #updates .sub-text {
+    margin-bottom: 20px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: #000000;
+}
+
+.section2 #updates p.text-right {
+    padding-bottom: 21px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #0C0C0C;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.section2 #history .btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.section2 #history .btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.section2 #history .btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+    border-radius: 0;
+}
+
+.section2 #history .more_price {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-decoration: underline;
+    color: #3B61D9;
+}
+
+.section2 .sub-title {
+    margin-bottom: 21px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.section2 p.text,
+.section2 div.poster,
+.section2 div.category,
+.section2 div.share {
+    margin-bottom: 30px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.section2 div.poster,
+.section2 div.category,
+.section2 div.share {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.section2 div.poster div {
+    margin-right: 44px;
+    text-align: center;
+}
+
+.section2 div.poster img {
+    margin-bottom: 10px;
+    height: 40px;
+    width: 40px;
+}
+
+.section2 div.poster p {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #000000;
+}
+
+.section2 div.category label {
+    margin-right: 30px;
+    margin-bottom: 15px;
+    padding: 8px 13px;
+    border: 2px solid #3B61D9;
+    border-radius: 6px;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #3B61D9;
+}
+
+.section2 div.share img {
+    margin-right: 30px;
+    margin-bottom: 15px;
+    height: 24px;
+}
+
+.section2 div.right_2 {
+    margin-top: 115px;
+}
+
+.section2 div.right_2 div.recommend {
+    margin-top: 51px;
+    border: 1px solid #E2E2E2;
+    border-radius: 14px;
+}
+
+.section2 div.right_2 div.recommend > div.img {
+    height: 180px;
+    border-radius: 14px 14px 0 0;
+    overflow: hidden;
+}
+
+.section2 div.right_2 div.recommend > div.img img {
+    margin: 0 auto;
+}
+
+.section2 div.right_2 div.recommend > .content {
+    padding: 0 14px;
+}
+
+.section2 div.right_2 div.recommend > .content h3.title {
+    height: 58px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #0C0C0C;
+    overflow: hidden;
+
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-wrap: break-word;
+}
+
+.section2 div.right_2 div.recommend > .content p.text {
+    margin-bottom: 45px;
+    height: 58px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #0C0C0C;
+    overflow: hidden;
+
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    word-wrap: break-word;
+}
+
+.section2 div.money {
+    margin-bottom: 6px;
+}
+
+.section2 div.money > div:first-child {
+    margin-right: 20px;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 43px;
+}
+
+.section2 div.progress {
+    margin-bottom: 7px;
+    width: 95%;
+    height: 4px;
+}
+
+.section2 div.progress .progress-bar {
+    background-color: #3BD95C;
+}
+
+.section2 div.time {
+    margin-bottom: 15px;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #0C0C0C;
+}
+
+.section2 div.source {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #919191;
+}
+
+#buy-modal .modal-header,
+#sell-modal .modal-header {
+    border-bottom: none;
+}
+
+#buy-modal h4.modal-title,
+#sell-modal h4.modal-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #0C0C0C;
+}
+
+#buy-modal th {
+    border-top: none;
+    border-bottom: 1px solid #000000;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+#buy-modal td {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+    vertical-align: middle;
+}
+
+#buy-modal #buy-home tr > td:last-child {
+    text-align: right;
+}
+
+#buy-modal div.table-responsive {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+#buy-modal div.table-responsive table {
+    margin-bottom: 0;
+}
+
+#buy-modal td img {
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+}
+
+#buy-modal a.btn {
+    width: 95px;
+    background: #3B61D9;
+    border-radius: 8px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#buy-modal .bid-info {
+    margin-right: 10px;
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 40px;
+    color: #000000;
+}
+
+#buy-modal .bid-info img {
+    margin-right: 15px;
+    width: 40px;
+    height: 40px;
+}
+
+#buy-modal table td {
+    height: 84px;
+}
+
+#buy-modal #buy-home .modal-body div.table-responsive,
+#buy-modal #buy-bid .modal-body div.table-responsive {
+    margin-bottom: 44px;
+    height: 346px;
+    overflow-y: auto;
+}
+
+
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+
+#buy-modal ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+    background-color: #F5F5F5;
+}
+
+
+/*定义滚动条轨道 内阴影+圆角*/
+
+#buy-modal ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+}
+
+
+/*定义滑块 内阴影+圆角*/
+
+#buy-modal ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .1);
+    background-color: #c8c8c8;
+}
+
+#buy-modal .bid_post {
+    margin-bottom: 54px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#buy-modal .bid_post a,
+#buy-modal .bid_post input {
+    width: 250px;
+}
+
+#buy-modal .bid_post input {
+    height: 40px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+}
+
+#buy-modal .bid_post a {
+    text-align: center;
+    background: #3B61D9;
+    border-radius: 8px;
+    height: 40px;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 26px;
+    color: #FFFFFF;
+}
+
+#sell-modal .modal-body {
+    padding-bottom: 65px;
+}
+
+#sell-modal .nav-tabs {
+    margin-bottom: 54px;
+    border-top: 1px solid #000;
+    border-bottom: none;
+}
+
+#sell-modal .nav-tabs > li > a {
+    font-family: "Montserrat", sans-serif;
+    margin-right: 40px;
+    padding-right: 20px;
+    padding-left: 0;
+    border: none;
+    border-radius: 0;
+    border-top: 4px solid #FFF;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+
+#sell-modal .nav-tabs > li.active > a,
+#sell-modal .nav-tabs > li.active > a:focus,
+#sell-modal .nav-tabs > li.active > a:hover {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    cursor: default;
+    background-color: transparent;
+    border: none;
+    border-top: 4px solid #000;
+    border-radius: 0;
+}
+
+#sell-modal .nav-tabs > li > a:hover,
+#sell-modal .nav > li > a:focus,
+#sell-modal .nav > li > a:hover {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+#sell-now > div {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#sell-now > div input,
+#start-bid > div input {
+    padding: 10px 7px;
+    height: 40px;
+    width: 298px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+}
+
+#sell-now > div a,
+#start-bid > div a {
+    background-color: #D93B3B;
+    border-radius: 14px;
+    width: 180px;
+    height: 40px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 40px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+#sell-now > a {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    text-decoration-line: underline;
+    color: #3B61D9;
+}
+
+#start-bid > div,
+#start-bid .expiration {
+    display: flex;
+    justify-content: space-between;
+}
+
+#start-bid .expiration span {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+
+#start-bid .expiration select {
+    border: none;
+}
+
+.modal-dialog {
+    width: 560px;
+}
+
+@media only screen and (max-width: 1367px) {
+    .section2 #comments .login a.post_btn {
+        margin-top: 4px;
+    }
+
+    .section1 div.time {
+        font-size: 16px;
+    }
+
+    .section1 .secure_btn a {
+        padding: 8px 0;
+        width: 140px;
+    }
+
+    .section1 .secure_btn p.price {
+        font-size: 16px;
+    }
+
+    .section1 .buy div p,
+    .section1 .buy a {
+        font-size: 12px;
+        line-height: 42px;
+    }
+}
+
+@media only screen and (max-width: 1180px) {
+    .section2 #area-chart {
+        width: 616px;
+    }
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1025px) {
+    .section1 div.buy {
+        display: block;
+        text-align: right;
+    }
+
+    .section1 .buy div {
+        justify-content: flex-end;
+    }
+
+    .section1 h1.title {
+        font-size: 32px;
+        line-height: 39px;
+        color: #0C0C0C;
+    }
+
+    .section1 p.text {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        color: #0C0C0C;
+    }
+
+    .section1 .wish_list p.money {
+        font-size: 14px;
+    }
+
+    .section1 div.time {
+        font-size: 12px;
+    }
+
+    .section1 .secure_btn a {
+        padding: 6px 0;
+        width: 134px;
+        font-size: 18px;
+    }
+
+    .section1 .secure_btn p.price {
+        font-size: 14px;
+    }
+
+    .section2 .screen-sales,
+    .section2 .more_price {
+        padding: 0 32px;
+    }
+}
+
+@media only screen and (max-width: 801px) {
+    .section1 .carousel {
+        margin-bottom: 30px;
+    }
+
+    .section1 div.row {
+        margin-bottom: 50px;
+    }
+
+    .section1 h1.title {
+        font-weight: bold;
+        color: #0C0C0C;
+    }
+
+    .section1 p.text {
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        color: #0C0C0C;
+    }
+
+    .section1 .secure_btn a {
+        width: 330px;
+    }
+
+    .section2 .tab-content {
+        margin-bottom: 50px;
+    }
+
+    .section2 .screen-sales,
+    .section2 .more_price {
+        padding: 0 42px;
+    }
+
+    .section2 #area-chart {
+        width: 720px;
+    }
+
+    .section2 div.right_2 {
+        margin-top: 50px;
+    }
+
+    .section2 div.right_2 div.recommend {
+        margin-top: 30;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .section1 .breadcrumb .active {
+        width: 190px;
+    }
+
+    .section1 .carousel {
+        margin-bottom: 30px;
+    }
+
+    .section1 div.row {
+        margin-bottom: 50px;
+    }
+
+    .section1 h1.title {
+        font-size: 26px;
+    }
+
+    .section1 div.time {
+        font-size: 14px;
+    }
+
+    /*.section1 .secure_btn {
+        display: flex;
+    }*/
+    .section1 .secure_btn a {
+        padding: 10px 0;
+        width: 166px;
+    }
+
+    .section1 .buy div p,
+    .section1 .buy a {
+        font-size: 12px;
+        line-height: 42px;
+    }
+
+    .section2 .tab-content {
+        margin-bottom: 50px;
+    }
+
+    .section2 .screen-sales,
+    .section2 .more_price {
+        padding: 0 5px;
+    }
+
+    .section2 #history .btn-group .btn {
+        padding: 4px 15px;
+    }
+
+    .section2 #area-chart {
+        width: 345px;
+    }
+
+    .section2 div.right_2 {
+        margin-top: 50px;
+    }
+
+    .section2 .nav-tabs > li > a {
+        margin-right: 30px;
+    }
+
+    .section2 div.right_2 div.recommend {
+        margin-top: 30;
+    }
+
+    #buy-modal a.btn {
+        width: 80px;
+    }
+
+    #buy-modal .bid-info {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    #buy-modal .bid_post {
+        margin-bottom: 34px;
+        display: block
+    }
+
+    #buy-modal .bid_post a,
+    #buy-modal .bid_post input {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .modal-dialog {
+        width: auto;
+    }
+}

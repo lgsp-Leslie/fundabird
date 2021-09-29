@@ -1,0 +1,108 @@
+{% extends 'foreground/base.html' %}
+{% block title %}
+    Group Deals List
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foreground/groupdeals_list.css') }}" />
+{% endblock %}
+{% block content %}
+    <section class="section1">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="{{ url_for('mall.index') }}">Home</a>
+                </li>
+                <li class="active">Group Deals List</li>
+            </ol>
+            <h1 class="title" id="count" data-count="{{ count / 12 }}">Explore {{ count }} Group Deals</h1>
+            {% include 'components/flash_messages.html' %}
+            <div class="item-list">
+                <div class="item">
+                    {% for item in page_data  %}
+                        <div class="row item_wrap">
+                            <div class="col-xs-12 col-sm-12 col-md-4 img_wrap">
+                                <a href="{{ url_for('mall.group_deals_detail') }}?pid={{ item.id }}">
+                                    {% if item.thumbnail %}
+                                    <img class="img-responsive"
+                                         src="{{ url_for('static', filename=item.thumbnail) }}"/>
+                                    {% else %}
+                                    <img class="img-responsive"
+                                         src="{{ url_for('static', filename='images/foreground/test/test_img220-260.png') }}"/>
+                                    {% endif %}
+                                </a>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-8">
+                                <a href="{{ url_for('mall.group_deals_detail') }}?pid={{ item.id }}">
+                                    <h3 class="title">{{ item.title }}</h3>
+                                    <p class="text">{{ item.desc }}</p>
+                                    <div class="money">
+                                        <div>${{ item.current_price / 100 }}</div>
+                                        {% if item.historical_price %}
+                                        <div>
+                                            <p>Was ${{ item.historical_price / 100 }}</p>
+                                            <span class="label">{{ item.discount }}% OFF</span>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+
+                                    {% if item.status.value == 'Finish' %}
+                                    <div>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ item.sales_volume }}"
+                                                 aria-valuemin="{{ item.sales_volume }}"
+                                                 aria-valuemax="{{ item.total }}" style="width: {{ item.sales_volume / item.total * 100 }}%;">
+                                            </div>
+                                        </div>
+                                        <div class="time">
+                                            <div>The goal is archived!</div>
+                                            <div>End in: {{ item.end_time.strftime('%Y/%m/%d') }}</div>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                    <div>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ item.sales_volume }}"
+                                                 aria-valuemin="{{ item.sales_volume }}"
+                                                 aria-valuemax="{{ item.total }}" style="width: {{ item.sales_volume / item.total * 100 }}%;">
+                                            </div>
+                                        </div>
+                                        <div class="time">
+                                            <div>{{ item.sales_volume }} position of {{ item.total }}</div>
+                                            <div>End in: {{ item.end_time.strftime('%Y/%m/%d') }}</div>
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    <p class="source">{{ item.source }}</p>
+                                </a>
+                            </div>
+                        </div>
+
+
+
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/foreground/jquery.simpleLoadMore.js') }}"></script>
+    <!--load more-->
+    <script type="text/javascript">
+        $('.item-list').simpleLoadMore({
+            item: 'div.item_wrap',
+            count: 12
+        });
+        {#$('.item-list').click(function () {#}
+        {#    let page_count = $('#count').attr('data-count')#}
+        {#    let page = 1#}
+        {#    if (page < page_count) {#}
+        {#        page += 1#}
+        {#    }#}
+        {#    let url = '/mall/group_deals_list'#}
+        {#    $.get(url, { 'page': page }, )#}
+        {#});#}
+    </script>
+{% endblock %}

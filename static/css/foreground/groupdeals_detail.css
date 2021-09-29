@@ -1,0 +1,631 @@
+.section1 .breadcrumb {
+    margin-bottom: 30px;
+    background-color: transparent;
+    padding: 50px 0 0;
+}
+
+.section1 .breadcrumb a {
+    color: #D8D8D8;
+}
+
+.section1 .breadcrumb .active {
+    color: #0C0C0C;
+    width: 270px;
+    vertical-align: bottom;
+    overflow: hidden;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.section1 div.row {
+    margin-bottom: 95px;
+}
+
+.section1 h1.title {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: bold;
+    line-height: 44px;
+}
+
+.section1 div .carousel-indicators li {
+    background: #D8D8D8;
+}
+
+.section1 div .carousel-indicators li.active {
+    background: #6A6A6A;
+    border: none;
+    width: 10px;
+    height: 10px;
+}
+
+.section1 div.carousel-inner .item {
+    height: 400px;
+}
+
+.section1 div.carousel-inner .item img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+}
+
+.section1 p.text {
+    margin-bottom: 25px;
+    max-height: 72px;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #0C0C0C;
+    overflow: hidden;
+
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    word-wrap: break-word;
+}
+
+.section1 .wish_list {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.section1 .wish_list a:first-child {
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: normal;
+    text-decoration-line: underline;
+    color: #3B61D9;
+}
+
+.section1 .wish_list a:last-child {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    color: #000000;
+}
+
+.section1 .wish_list a:last-child span {
+    margin-right: 10px;
+    padding: 6px;
+    font-size: 12px;
+    background-color: #F5F5F5;
+    border-radius: 50%;
+    color: #FF4444;
+}
+
+.section1 .money {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.section1 .money span {
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 58px;
+    color: #000000;
+}
+
+.section1 .money div p.text {
+    margin-top: 6px;
+    margin-bottom: 4px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #999999;
+}
+
+.section1 .money div span.label {
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    background-color: #D93B3B;
+    color: #FFFFFF;
+}
+
+.section1 div.progress {
+    margin-bottom: 7px;
+    height: 4px;
+}
+
+.section1 div.progress .progress-bar {
+    background-color: #3B61D9;
+}
+
+.section1 div.time {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.section1 .secure_btn {
+    padding: 16px 0;
+    display: block;
+    text-align: center;
+    background-color: #3B61D9;
+    border-radius: 14px;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+}
+
+.section1 hr {
+    margin-top: 28px;
+    margin-bottom: 16px;
+    border-color: #000;
+}
+
+.section1 .buy {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section1 .buy div {
+    display: flex;
+    justify-content: flex-start;
+    line-height: 42px;
+}
+
+.section1 .buy div img {
+    margin-right: 10px;
+    height: 42px;
+    width: 42px;
+}
+
+.section1 .buy div p {
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 14px;
+    color: #000000;
+}
+
+.section1 .buy div p a.coins {
+    text-decoration: underline;
+}
+
+.section1 .buy a {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 42px;
+    color: #000000;
+}
+
+.section2 .tab-content img,
+.section2 .tab-content iframe {
+    max-width: 100%;
+}
+
+.section2 .nav-tabs {
+    margin-bottom: 50px;
+    border-top: 1px solid #000;
+    border-bottom: none;
+}
+
+.section2 .nav-tabs > li > a {
+    font-family: "Montserrat", sans-serif;
+    margin-right: 74px;
+    padding-right: 20px;
+    padding-left: 0;
+    border: none;
+    border-radius: 0;
+    border-top: 4px solid #FFF;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.section2 .nav-tabs > li.active > a,
+.section2 .nav-tabs > li.active > a:focus,
+.section2 .nav-tabs > li.active > a:hover {
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    cursor: default;
+    background-color: transparent;
+    border: none;
+    border-top: 4px solid #000;
+    border-radius: 0;
+}
+
+.section2 .nav-tabs > li > a:hover,
+.nav > li > a:focus,
+.nav > li > a:hover {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.section2 #comments .logout {
+    padding: 9px 0;
+    background-color: #F7F7F7;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+.section2 #comments .logout a {
+    text-decoration: underline;
+}
+
+.section2 #comments .login {
+    position: relative;
+}
+
+.section2 #comments .login textarea {
+    padding-bottom: 50px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    resize: none;
+}
+
+.section2 #comments .login a.post_btn {
+    top: 50%;
+    left: 50%;
+    margin-top: 4px;
+    margin-left: -82px;
+    position: absolute;
+    padding: 9px 20px;
+    background-color: #3B61D9;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+.section2 .reply-list,
+.section2 .r-item {
+    margin-top: 52px;
+}
+
+.section2 .user-operate {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section2 #comments .user-avatar {
+    position: relative;
+}
+
+.section2 #comments .user-avatar .circle {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    background-color: #3B61D9;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.section2 #comments .user-operate > div {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.section2 #comments .user-operate div.user-avatar {
+    margin-right: 15px;
+}
+
+.section2 #comments .user-operate div.user-avatar img {
+    width: 40px;
+    height: 40px;
+}
+
+.section2 .user-operate div:first-child .user-info p {
+    margin-bottom: 2px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.section2 .user-operate div:first-child .user-info p.user-username {
+    color: #000000;
+}
+
+.section2 .user-operate div:first-child .user-info p.user-time {
+    color: #A7A7A7;
+}
+
+.section2 .user-operate a {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+
+.section2 .user-operate + hr {
+    border-top-color: #000;
+}
+
+.section2 p.r-text {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+    color: #000000;
+}
+
+.section2 .r-item hr:last-child {
+    margin-top: 28px;
+    margin-bottom: 29px;
+    border-top-color: rgba(0, 0, 0, 0.15);
+}
+
+.section2 .r-info {
+    margin-bottom: 42px;
+}
+
+.section2 .bg-grey {
+    margin-top: 11px;
+    margin-left: 50px;
+    padding: 10px 8px;
+    background: #F7F7F7;
+    border-radius: 6px;
+}
+
+.section2 a.load-more__btn {
+    margin-top: 35px;
+    display: block;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #000000;
+}
+
+.section2 .sub-title {
+    margin-bottom: 21px;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+}
+
+.section2 p.text,
+.section2 div.source,
+.section2 div.category,
+.section2 div.share {
+    margin-bottom: 30px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.section2 div.source,
+.section2 div.category,
+.section2 div.share {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.section2 div.source img {
+    margin-bottom: 15px;
+    margin-right: 20px;
+    height: 30px;
+}
+
+.section2 div.category label {
+    margin-right: 30px;
+    margin-bottom: 15px;
+    padding: 8px 13px;
+    border: 2px solid #3B61D9;
+    border-radius: 6px;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #3B61D9;
+}
+
+.section2 div.share img {
+    margin-right: 30px;
+    margin-bottom: 15px;
+    height: 24px;
+}
+
+.section2 div.right_2 {
+    margin-top: 115px;
+}
+
+.section2 div.right_2 div.recommend {
+    margin-top: 51px;
+    border: 1px solid #E2E2E2;
+    border-radius: 14px;
+}
+
+.section2 div.right_2 div.recommend > div.img {
+    height: 180px;
+    border-radius: 14px 14px 0 0;
+    overflow: hidden;
+}
+
+.section2 div.right_2 div.recommend > div.img img {
+    margin: 0 auto;
+}
+
+.section2 div.right_2 div.recommend > .content {
+    padding: 0 14px;
+}
+
+.section2 div.right_2 div.recommend > .content h3.title {
+    max-height: 58px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: #0C0C0C;
+    overflow: hidden;
+
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-wrap: break-word;
+}
+
+.section2 div.right_2 div.recommend > .content p.text {
+    height: 58px;
+    margin-bottom: 45px;
+    font-weight: normal;
+    font-size: 14px;
+    color: #0C0C0C;
+    overflow: hidden;
+
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    word-wrap: break-word;
+}
+
+.section2 div.money {
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.section2 div.money > div:first-child {
+    margin-right: 20px;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 43px;
+}
+
+.section2 div.money > div > p {
+    margin-bottom: 0;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #999999;
+}
+
+.section2 div.money > div > span.label {
+    background-color: #D93B3B;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    color: #FFFFFF;
+}
+
+.section2 div.progress {
+    margin-bottom: 7px;
+    width: 95%;
+    height: 4px;
+}
+
+.section2 div.progress .progress-bar {
+    background-color: #3B61D9;
+}
+
+.section2 div.time {
+    margin-bottom: 15px;
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #0C0C0C;
+}
+
+.section2 p.source {
+    margin-bottom: 14px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #919191;
+}
+
+@media only screen and (max-width: 1367px) {
+    .section2 #comments .login a.post_btn {
+        margin-top: 4px;
+    }
+}
+
+@media only screen and (min-width: 801px) and (max-width: 1025px) {
+    .section1 div.buy {
+        display: block;
+        text-align: right;
+    }
+
+    .section1 .buy div {
+        justify-content: flex-end;
+    }
+}
+
+@media only screen and (max-width: 801px) {
+    .section1 .carousel {
+        margin-bottom: 30px;
+    }
+
+    .section1 div.row {
+        margin-bottom: 50px;
+    }
+
+    .section2 .tab-content {
+        margin-bottom: 50px;
+    }
+
+    .section2 div.right_2 {
+        margin-top: 50px;
+    }
+
+    .section2 div.right_2 div.recommend {
+        margin-top: 30;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .section1 .breadcrumb .active {
+        width: 190px;
+    }
+
+    .section1 .carousel {
+        margin-bottom: 30px;
+    }
+
+    .section1 div.row {
+        margin-bottom: 50px;
+    }
+
+    .section1 h1.title {
+        font-size: 26px;
+    }
+
+    .section1 div.time {
+        font-size: 14px;
+    }
+
+    .section1 .buy div p,
+    .section1 .buy a {
+        font-size: 12px;
+    }
+
+    .section2 .tab-content {
+        margin-bottom: 50px;
+    }
+
+    .section2 div.right_2 {
+        margin-top: 50px;
+    }
+
+    .section2 .nav-tabs > li > a {
+        margin-right: 30px;
+    }
+
+    .section2 div.right_2 div.recommend {
+        margin-top: 30;
+    }
+}

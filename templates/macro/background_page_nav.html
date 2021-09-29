@@ -1,0 +1,51 @@
+{% macro page_nav(page_data, obj_url) %}
+    {% if page_data %}
+
+        <nav class="d-inline-block">
+            <ul class="pagination mb-0 ">
+                {% if page_data.has_prev %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for(obj_url, page=page_data.prev_num) }}" tabindex="-1"><i
+                                class="fas fa-chevron-left"></i></a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled ">
+                        <a class="page-link" href="javascript:void(0);" tabindex="-1"><i
+                                class="fas fa-chevron-left"></i></a>
+                    </li>
+                {% endif %}
+
+                {% for page_num in page_data.iter_pages() %}
+                    {% set page_num = page_num|d('...', True) %}
+                    {% if page_num == '...' %}
+                        <li><a href="javascript:;">{{ page_num }}</a></li>
+                    {% else %}
+                        {% if page_num == page_data.page %}
+                            <li class="page-item active ">
+                                <a class="page-link" href="javascript:;">{{ page_num }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ url_for(obj_url, page=page_num) }}">{{ page_num }}</a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                {% if page_data.has_next %}
+                    <li class="page-item ">
+                        <a class="page-link " href="{{ url_for(obj_url, page=page_data.next_num) }}">
+                            <i class="fas fa-chevron-right "></i>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <a class="page-link " href="javascript:;">
+                            <i class="fas fa-chevron-right "></i>
+                        </a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </nav>
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,79 @@
+.section1 .breadcrumb {
+	margin-bottom: 150px;
+	background-color: transparent;
+	padding: 50px 0 0;
+}
+
+.section1 .breadcrumb a {
+	color: #D8D8D8;
+}
+
+.section1 .breadcrumb .active {
+	color: #0C0C0C;
+	width: 270px;
+	vertical-align: bottom;
+	overflow: hidden;
+	
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.section1 h1 {
+	margin-top: 0;
+	margin-bottom: 30px;
+	font-weight: bold;
+	font-size: 32px;
+	line-height: 32px;
+	color: #0C0C0C;
+	text-align: center;
+}
+
+.section1 p.sub-title {
+	margin: 0 auto 30px;
+	font-size: 14px;
+	line-height: 18px;
+	color: #0C0C0C;
+	text-align: center;
+}
+
+.section1 .fp {
+	width: 318px;
+}
+
+.section1 input {
+	margin-bottom: 30px;
+	width: 100%;
+	border-radius: 8px;
+	border: 1px solid #000000;
+	padding: 9px 20px;
+}
+
+.section1 input[type='submit'] {
+	margin-bottom: 30px;
+	padding: 9px 0;
+	width: 100%;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+	color: #FFFFFF;
+	background: #000;
+	border-radius: 8px;
+	border: none;
+}
+
+div.link {
+	display: flex;
+	justify-content: space-between;
+}
+
+div.link a {
+	color: #000;
+	text-decoration: underline;
+}
+
+@media only screen and (max-width: 640px) {
+	.section1 h1 {
+		font-size: 28px;
+		line-height: 28px;
+	}
+}

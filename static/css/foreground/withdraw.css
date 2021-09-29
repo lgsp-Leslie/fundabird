@@ -1,0 +1,197 @@
+hr {
+	margin-top: 25px;
+	margin-bottom: 40px;
+	border-color: #000;
+}
+
+.section1 {
+	margin-bottom: 35px;
+}
+
+.section1 .breadcrumb {
+	margin-bottom: 30px;
+	background-color: transparent;
+	padding: 50px 0 0;
+}
+
+.section1 .breadcrumb a {
+	color: #D8D8D8;
+}
+
+.section1 .breadcrumb .active {
+	color: #0C0C0C;
+	width: 270px;
+	vertical-align: bottom;
+	overflow: hidden;
+	
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+.section1 .wrap1 {
+	margin-bottom: 50px;
+}
+
+.section1 h1.title {
+	margin-top: 0;
+	margin-bottom: 30px;
+	font-weight: bold;
+	line-height: 44px;
+}
+
+.section1 p.title {
+	margin-bottom: 22px;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 29px;
+	color: #000000;
+}
+
+.section1 p.text {
+	margin-bottom: 20px;
+}
+
+.section1 p.subtitle {
+	margin-bottom: 20px;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 20px;
+	color: #000000;
+}
+
+.section1 .wrap2 .history>div {
+	display: flex;
+	justify-content: space-between;
+}
+
+.section1 .bank_info>div {
+	display: flex;
+	justify-content: space-between;
+}
+
+.section1 input.form-control {
+	margin-bottom: 20px;
+	border: 1px solid #000000;
+	box-sizing: border-box;
+	border-radius: 8px;
+}
+
+.section1 a {
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 19px;
+	text-align: right;
+	color: #3B61D9;
+}
+
+.section1 p.transaction {
+	margin-bottom: 30px;
+}
+
+.section1 p.transaction a {
+	text-decoration-line: underline;
+}
+
+.section1 .btn_submit {
+	padding: 9px 0;
+	display: block;
+	width: 100%;
+	border: none;
+	background: #3B61D9;
+	border-radius: 8px;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.modal p {
+	margin-bottom: 20px;
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 19px;
+	color: #000000;
+}
+
+.modal p.subtitle {
+	font-weight: bold;
+}
+
+.modal .modal-header,
+.modal .modal-footer {
+	border: none;
+}
+
+.modal h4.modal-title {
+	text-align: center;
+	font-weight: bold;
+	font-size: 24px;
+	line-height: 29px;
+	color: #0C0C0C;
+}
+
+.modal .modal-footer {
+	padding-bottom: 45px;
+	text-align: center;
+}
+
+.modal .modal-footer button {
+	padding: 9px 0;
+	border: none;
+	width: 70%;
+	background: #3B61D9;
+	border-radius: 8px;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+	color: #FFFFFF;
+}
+#add-modal .modal-body {
+	padding-left: 85px;
+	padding-right: 85px;
+}
+#add-modal .input_wrap {
+	display: flex;
+	justify-content: space-between;
+}
+
+#add-modal .input_wrap .form-group {
+	width: 48%;
+}
+
+#submit-modal .modal-body>div {
+	display: flex;
+	justify-content: space-between;
+}
+
+#add-modal input,
+#add-modal select {
+	margin-bottom: 30px;
+	padding: 10px 16px;
+	width: 100%;
+	height: 40px;
+	border: 1px solid #000000;
+	border-radius: 8px;
+}
+
+@media only screen and (max-width: 800px) {
+	#add-modal .modal-body {
+	padding-left: 35px;
+	padding-right: 35px;
+}
+}
+
+@media only screen and (max-width: 640px) {
+	#add-modal .input_wrap {
+		flex-wrap: wrap;
+		justify-content: flex-start;
+	}
+	#add-modal .input_wrap .form-group {
+		width: 100%;
+	}
+	#add-modal input, #add-modal select {
+		margin-bottom: 15px;
+	}
+}

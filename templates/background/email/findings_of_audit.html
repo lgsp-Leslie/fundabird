@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>感谢申请</title>
+</head>
+<body>
+<div>
+    <p>您的项目申请，我们已经收到，感谢您的提交！</p>
+    <p>该项目的审核结果是：{{ result }}</p>
+    {% if reason %}
+        理由：{{ reason }}
+    {% endif %}
+</div>
+</body>
+</html>

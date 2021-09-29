@@ -1,0 +1,1005 @@
+{% extends 'foreground/base.html' %}
+{% block title %}
+    首页
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foreground/index.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foreground/swiper-bundle.min.css') }}"/>
+{% endblock %}
+
+{% block content %}
+    <section class="section1">
+        <div class="jumbotron">
+            <div class="container">
+                {% include 'components/flash_messages.html' %}
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-5 col-lg-5">
+                        <h1>Crowdfunding with birdies, ideas to success, explore the future.</h1>
+                        <div>
+                            <a href="#">
+                                <span class="glyphicon glyphicon-play-circle"></span>
+                                <div class="text">Watch more detail</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-7 col-lg-7">
+                        <img class="img-responsive" src="{{ url_for('static', filename='images/foreground/index/banner.jpg') }}"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="section2">
+        <div class="container">
+            <div class="row hidden-sm hidden-xs">
+                <div class="col-md-2">
+                    <a href="">
+                        <img src="{{ url_for('static', filename='images/foreground/index/Tech.png') }}" alt="Tech"/>
+                        <p class="text">Tech</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="">
+                        <img src="{{ url_for('static', filename='images/foreground/index/Home.png') }}" alt="Home"/>
+                        <p class="text">Home</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="">
+                        <img src="{{ url_for('static', filename='images/foreground/index/Lifestyle.png') }}" alt="Lifestyle"/>
+                        <p class="text">Lifestyle</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="">
+                        <img src="{{ url_for('static', filename='images/foreground/index/Art.png') }}" alt="Arts"/>
+                        <p class="text">Art</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="">
+                        <img src="{{ url_for('static', filename='images/foreground/index/Community.png') }}" alt="Community"/>
+                        <p class="text">Community</p>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a href="">
+                        <img src="{{ url_for('static', filename='images/foreground/index/Virtual.png') }}" alt="Virtual"/>
+                        <p class="text">Virtual</p>
+                    </a>
+                </div>
+            </div>
+            <div class="row hidden-md hidden-lg">
+                <div class="col-xs-12">
+                    <div class="swiper-container section2-swiper">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <a href="">
+                                    <img src="{{ url_for('static', filename='images/foreground/index/Tech.png') }}"
+                                         class="img-circle"/>
+                                    <p class="text">Tech</p>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="">
+                                    <img src="{{ url_for('static', filename='images/foreground/index/Home.png') }}"
+                                         class="img-circle"/>
+                                    <p class="text">Home</p>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="">
+                                    <img src="{{ url_for('static', filename='images/foreground/index/Lifestyle.png') }}"
+                                         class="img-circle"/>
+                                    <p class="text">Lifestyle</p>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="">
+                                    <img src="{{ url_for('static', filename='images/foreground/index/Art.png') }}"
+                                         class="img-circle"/>
+                                    <p class="text">Art</p>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="">
+                                    <img src="{{ url_for('static', filename='images/foreground/index/Community.png') }}"
+                                         class="img-circle"/>
+                                    <p class="text">Community</p>
+                                </a>
+                            </div>
+                            <div class="swiper-slide">
+                                <a href="">
+                                    <img src="{{ url_for('static', filename='images/foreground/index/Virtual.png') }}"
+                                         class="img-circle"/>
+                                    <p class="text">Virtual</p>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Add Pagination -->
+                        <div class="section2-swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="section3">
+        <div class="container">
+            <div class="header">
+                <h1 class="title">
+                    Group Deals
+                </h1>
+                <a href="{{ url_for('mall.group_deals_list') }}" class="hidden-xs">See More >>></a>
+            </div>
+            <div class="swiper-container group-deals">
+                <div class="swiper-wrapper">
+                    {% for item in product_obj %}
+                    <div class="swiper-slide">
+                        <a href="{{ url_for('mall.group_deals_detail') }}?pid={{ item.id }}">
+                            <div class="wrap_slide">
+                                <div class="wrap_left">
+                                    {% if item.thumbnail %}
+                                    <img class="img-responsive"
+                                         src="{{ url_for('static', filename=item.thumbnail) }}"/>
+                                    {% else %}
+                                    <img class="img-responsive"
+                                         src="{{ url_for('static', filename='images/foreground/test/test_img220-260.png') }}"/>
+                                    {% endif %}
+                                </div>
+                                <div class="wrap_right">
+                                    <h3 class="title">{{ item.title }}</h3>
+                                    <p class="text">{{ item.desc }}</p>
+                                    <div class="money">
+                                        <div>${{ item.current_price / 100 }}</div>
+                                        {% if item.historical_price %}
+                                            <div>
+                                                <p>Was ${{ item.historical_price / 100 }}</p>
+                                                <span class="label">{{ item.discount }}% OFF</span>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% if item.status.value == 'Finish' %}
+                                    <div>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ item.sales_volume }}"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="{{ item.total }}" style="width: {{ item.sales_volume / item.total * 100 }}%;">
+                                            </div>
+                                        </div>
+                                        <div class="time">
+                                            <div>The goal is archived!</div>
+                                            <div data-time="{{ item.end_time }}">End in: {{ item.end_time }}</div>
+                                        </div>
+                                    </div>
+                                {% else %}
+                                    <div>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ item.sales_volume }}"
+                                                 aria-valuemin="0"
+                                                 aria-valuemax="{{ item.total }}" style="width: {{ item.sales_volume / item.total * 100 }}%;">
+                                            </div>
+                                        </div>
+                                        <div class="time">
+                                            <div>{{ item.sales_volume }} position of {{ item.total }}</div>
+                                            <div data-time="{{ item.end_time }}">End in: {{ item.end_time.strftime('%Y/%m/%d') }}</div>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                    <p class="source">{{ item.source }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <p class="text-right">
+                <a href="{{ url_for('mall.group_deals_list') }}" class="hidden-sm hidden-md hidden-lg">See More >>></a>
+            </p>
+        </div>
+    </section>
+    <section class="section4">
+        <div class="container">
+            <div class="header">
+                <h1 class="title">
+                    Innovation Products
+                </h1>
+                <a href="innovation_detail_list.html" class="hidden-xs">See More >>></a>
+            </div>
+
+            <div class="swiper-container innovation-products">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="img">
+                            <img class="img-responsive"
+                                 src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Saleave bread slippers for summer Saleave bread slippers for summerSaleave
+                                bread slippers for summerSaleave bread slippers for summerSaleave bread slippers for
+                                summer Saleave bread slippers for summerSaleave bread slippers for summerSaleave bread
+                                slippers for summerSaleave bread slippers for summer Saleave bread slippers for
+                                summerSaleave bread slippers for summerSaleave bread slippers for summerSaleave bread
+                                slippers for summer Saleave bread slippers for summerSaleave bread slippers for
+                                summerSaleave bread slippers for summer</h3>
+                            <p class="text">Mute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip
+                                Sandals Men Summer Platform Women Shoes BathMute EVA Sofa Slides Women Thick Sole Soft
+                                Indoor Slippers Women Anti-slip Sandals Men Summer Platform Women Shoes BathMute EVA
+                                Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip Sandals Men Summer
+                                Platform Women Shoes BathMute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers
+                                Women Anti-slip Sandals Men Summer Platform Women Shoes BathMute EVA Sofa Slides Women
+                                Thick Sole Soft Indoor Slippers Women Anti-slip Sandals Men Summer Platform Women Shoes
+                                BathMute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip Sandals
+                                Men Summer Platform Women Shoes Bath</p>
+
+                            <div class="money">
+                                <div>$3.2</div>
+                                <div>
+                                    <span class="glyphicon glyphicon-triangle-top"></span><span> $38(21.2%)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    82 position of 100
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                    <div>
+                                        End: 10/21/2021
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    The goal is archived!
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="img">
+                            <img class="img-responsive"
+                                 src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Saleave bread slippers for summer Saleave bread slippers for summerSaleave
+                                bread slippers for summerSaleave bread slippers for summer</h3>
+                            <p class="text">Mute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip
+                                Sandals Men Summer Platform Women Shoes Bath</p>
+
+                            <div class="money">
+                                <div>$3.2</div>
+                                <div>
+                                    <span class="glyphicon glyphicon-triangle-top"></span><span> $38(21.2%)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    82 position of 100
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                    <div>
+                                        End: 10/21/2021
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    The goal is archived!
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img">
+                            <img class="img-responsive"
+                                 src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Saleave bread slippers for summer Saleave bread slippers for summerSaleave
+                                bread slippers for summerSaleave bread slippers for summer</h3>
+                            <p class="text">Mute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip
+                                Sandals Men Summer Platform Women Shoes Bath</p>
+
+                            <div class="money">
+                                <div>$3.2</div>
+                                <div>
+                                    <span class="glyphicon glyphicon-triangle-top"></span><span> $38(21.2%)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    82 position of 100
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                    <div>
+                                        End: 10/21/2021
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    The goal is archived!
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img">
+                            <img class="img-responsive"
+                                 src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Saleave bread slippers for summer Saleave bread slippers for summerSaleave
+                                bread slippers for summerSaleave bread slippers for summer</h3>
+                            <p class="text">Mute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip
+                                Sandals Men Summer Platform Women Shoes Bath</p>
+
+                            <div class="money">
+                                <div>$3.2</div>
+                                <div>
+                                    <span class="glyphicon glyphicon-triangle-top"></span><span> $38(21.2%)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    82 position of 100
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                    <div>
+                                        End: 10/21/2021
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;">
+                                    </div>
+                                </div>
+                                <div class="schedule">
+                                    The goal is archived!
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img">
+                            <img class="img-responsive"
+                                 src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Saleave bread slippers for summer Saleave bread slippers for summerSaleave
+                                bread slippers for summerSaleave bread slippers for summer</h3>
+                            <p class="text">Mute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip
+                                Sandals Men Summer Platform Women Shoes Bath</p>
+
+                            <div class="money">
+                                <div>$3.2</div>
+                                <div>
+                                    <span class="glyphicon glyphicon-triangle-top"></span><span> $38(21.2%)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    82 position of 100
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                    <div>
+                                        End: 10/21/2021
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;">
+                                    </div>
+                                </div>
+                                <div class="schedule">
+                                    The goal is archived!
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img">
+                            <img class="img-responsive"
+                                 src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Saleave bread slippers for summer Saleave bread slippers for summerSaleave
+                                bread slippers for summerSaleave bread slippers for summer</h3>
+                            <p class="text">Mute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip
+                                Sandals Men Summer Platform Women Shoes BathMute EVA Sofa Slides Women Thick Sole Soft
+                                Indoor Slippers Women Anti-slip Sandals Men Summer Platform Women Shoes BathMute EVA
+                                Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip Sandals Men Summer
+                                Platform Women Shoes BathMute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers
+                                Women Anti-slip Sandals Men Summer Platform Women Shoes Bath</p>
+
+                            <div class="money">
+                                <div>$3.2</div>
+                                <div>
+                                    <span class="glyphicon glyphicon-triangle-top"></span><span> $38(21.2%)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    82 position of 100
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                    <div>
+                                        End: 10/21/2021
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    The goal is archived!
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <p class="text-right">
+                <a href="innovation_detail_list.html" class="hidden-sm hidden-md hidden-lg">See More >>></a>
+            </p>
+        </div>
+    </section>
+    <section class="section5">
+        <div class="container">
+            <div class="header">
+                <h1 class="title">
+                    Funding Products
+                </h1>
+                <a href="" class="hidden-xs">See More >>></a>
+            </div>
+
+            <div class="swiper-container creative-ideas">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="img">
+                            <img class="img-responsive"
+                                 src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Saleave bread slippers for summer Saleave bread slippers for summerSaleave
+                                bread slippers for summerSaleave bread slippers for summerSaleave bread slippers for
+                                summer Saleave bread slippers for summerSaleave bread slippers for summerSaleave bread
+                                slippers for summerSaleave bread slippers for summer Saleave bread slippers for
+                                summerSaleave bread slippers for summerSaleave bread slippers for summerSaleave bread
+                                slippers for summer Saleave bread slippers for summerSaleave bread slippers for
+                                summerSaleave bread slippers for summer</h3>
+                            <p class="text">Mute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip
+                                Sandals Men Summer Platform Women Shoes BathMute EVA Sofa Slides Women Thick Sole Soft
+                                Indoor Slippers Women Anti-slip Sandals Men Summer Platform Women Shoes BathMute EVA
+                                Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip Sandals Men Summer
+                                Platform Women Shoes BathMute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers
+                                Women Anti-slip Sandals Men Summer Platform Women Shoes Bath</p>
+
+                            <div class="money">
+                                <div>$3.2</div>
+                                <div>
+                                    <span class="glyphicon glyphicon-triangle-top"></span><span> $38(21.2%)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    82 position of 100
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                    <div>
+                                        End: 10/21/2021
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    The goal is archived!
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img">
+                            <img class="img-responsive"
+                                 src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Saleave bread slippers for summer Saleave bread slippers for summerSaleave
+                                bread slippers for summerSaleave bread slippers for summer</h3>
+                            <p class="text">Mute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip
+                                Sandals Men Summer Platform Women Shoes Bath</p>
+
+                            <div class="money">
+                                <div>$3.2</div>
+                                <div>
+                                    <span class="glyphicon glyphicon-triangle-top"></span><span> $38(21.2%)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    82 position of 100
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                    <div>
+                                        End: 10/21/2021
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;">
+                                    </div>
+                                </div>
+                                <div class="schedule">
+                                    The goal is archived!
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img">
+                            <img class="img-responsive"
+                                 src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Saleave bread slippers for summer Saleave bread slippers for summerSaleave
+                                bread slippers for summerSaleave bread slippers for summer</h3>
+                            <p class="text">Mute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip
+                                Sandals Men Summer Platform Women Shoes Bath</p>
+
+                            <div class="money">
+                                <div>$3.2</div>
+                                <div>
+                                    <span class="glyphicon glyphicon-triangle-top"></span><span> $38(21.2%)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    82 position of 100
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                    <div>
+                                        End: 10/21/2021
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;">
+                                    </div>
+                                </div>
+                                <div class="schedule">
+                                    The goal is archived!
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img">
+                            <img class="img-responsive"
+                                 src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Saleave bread slippers for summer Saleave bread slippers for summerSaleave
+                                bread slippers for summerSaleave bread slippers for summer</h3>
+                            <p class="text">Mute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip
+                                Sandals Men Summer Platform Women Shoes Bath</p>
+
+                            <div class="money">
+                                <div>$3.2</div>
+                                <div>
+                                    <span class="glyphicon glyphicon-triangle-top"></span><span> $38(21.2%)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    82 position of 100
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                    <div>
+                                        End: 10/21/2021
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    The goal is archived!
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img">
+                            <img class="img-responsive"
+                                 src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Saleave bread slippers for summer Saleave bread slippers for summerSaleave
+                                bread slippers for summerSaleave bread slippers for summer</h3>
+                            <p class="text">Mute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip
+                                Sandals Men Summer Platform Women Shoes Bath</p>
+
+                            <div class="money">
+                                <div>$3.2</div>
+                                <div>
+                                    <span class="glyphicon glyphicon-triangle-top"></span><span> $38(21.2%)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    82 position of 100
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                    <div>
+                                        End: 10/21/2021
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;">
+                                    </div>
+                                </div>
+                                <div class="schedule">
+                                    The goal is archived!
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="img">
+                            <img class="img-responsive"
+                                 src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                        </div>
+                        <div class="content">
+                            <h3 class="title">Saleave bread slippers for summer Saleave bread slippers for summerSaleave
+                                bread slippers for summerSaleave bread slippers for summer</h3>
+                            <p class="text">Mute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip
+                                Sandals Men Summer Platform Women Shoes BathMute EVA Sofa Slides Women Thick Sole Soft
+                                Indoor Slippers Women Anti-slip Sandals Men Summer Platform Women Shoes BathMute EVA
+                                Sofa Slides Women Thick Sole Soft Indoor Slippers Women Anti-slip Sandals Men Summer
+                                Platform Women Shoes BathMute EVA Sofa Slides Women Thick Sole Soft Indoor Slippers
+                                Women Anti-slip Sandals Men Summer Platform Women Shoes Bath</p>
+
+                            <div class="money">
+                                <div>$3.2</div>
+                                <div>
+                                    <span class="glyphicon glyphicon-triangle-top"></span><span> $38(21.2%)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 60%;">
+                                    </div>
+                                </div>
+
+                                <div class="schedule">
+                                    82 position of 100
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                    <div>
+                                        End: 10/21/2021
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+                                         aria-valuemax="100" style="width: 100%;">
+                                    </div>
+                                </div>
+                                <div class="schedule">
+                                    The goal is archived!
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        Post by James Tim
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <p class="text-right">
+                <a href="" class="hidden-sm hidden-md hidden-lg">See More >>></a>
+            </p>
+        </div>
+    </section>
+    <section class="section6">
+        <div class="container">
+            <h1 class="title">
+                Successful Project
+            </h1>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-8 col-md-push-4">
+                    <img class="img-responsive" src="{{ url_for('static', filename='images/foreground/index/Rectangle.png') }}"/>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-md-pull-8">
+                    <span class="title">Design&Tech</span>
+                    <div class="title">
+                        How Tarot Creator Krystal Banner Strengthens Her Intuition—and Business—on Kickstarter
+                    </div>
+                    <p class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+                        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <a href="" class="link">Read More >>></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename='js/foreground/swiper-bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/foreground/index.js') }}"></script>
+{#    <script src="//code-eu1.jivosite.com/widget/TGYKORxqng" async></script>#}
+{% endblock %}

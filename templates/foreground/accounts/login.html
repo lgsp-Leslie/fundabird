@@ -1,0 +1,144 @@
+{% extends 'foreground/base.html' %}
+{% block title %}
+    Log In
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foreground/signup.css') }}"/>
+{% endblock %}
+{% block content %}
+    <section class="section1">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="{{ url_for('mall.index') }}">Home</a>
+                </li>
+                <li class="active">Log In</li>
+            </ol>
+            <h1 class="title">Log In</h1>
+            <div class="row">
+                <div class="col-xs-12 col-sm-7 col-sm-push-5">
+                    <img src="{{ url_for('static', filename='images/foreground/sign/signin.png') }}"
+                         class="img-responsive img"/>
+                </div>
+                <div class="col-xs-12 col-sm-5 col-sm-pull-7">
+                    <h1 class="title hidden-sm hidden-md hidden-lg">Log In</h1>
+                    <p class="text">No Account Yet?&nbsp;?&nbsp;
+                        <a href="{{ url_for('mall.register') }}">Create Your Account >>></a>
+                    </p>
+                    {% include 'components/flash_messages.html' %}
+                    <div>
+                        <form method="post">
+                            {{ form.csrf_token }}
+                            <div class="form-group">
+                                {{ form.email }}
+                                {{ form_field_errors(form.email.errors) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.password }}
+                                {{ form_field_errors(form.password.errors) }}
+                                <p class="text-right"><a href="forgot_password.html">Forgot Password ?</a></p>
+                            </div>
+                            {{ form.submit }}
+                        </form>
+                        <div>
+                            <img src="{{ url_for('static', filename='images/foreground/sign/line.png') }}"
+                                 class="img-responsive center-block"/>
+                        </div>
+                        <div class="third_party_logins">
+                            <a href="javascript:;" id="fb_login">
+                                <img src="{{ url_for('static', filename='images/foreground/base/facebook_login.png') }}"
+                                     alt="facebook"/>
+                            </a>
+                            <a href="">
+                                <img src="{{ url_for('static', filename='images/foreground/base/google_login.png') }}"
+                                     alt="google"/>
+                            </a>
+                            <a href="">
+                                <img src="{{ url_for('static', filename='images/foreground/base/apple_login.png') }}"
+                                     alt="apple"/>
+                            </a>
+                        </div>
+                        <p class="policy">By log in , you agree to our
+                            <a href="">Privacy Policy</a>,
+                            <a href="">Cookie Policy and Terms of Use.</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
+{% block js %}
+    <script>
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '2915084535468883',
+                cookie: true,
+                xfbml: true,
+                version: 'v12.0'
+            });
+
+            FB.AppEvents.logPageView();
+
+        };
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {
+                return;
+            }
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+    </script>
+    <script>
+        $("#fb_login").click(function () {
+            FB.login(function (response) {
+                statusChangeCallback(response);  //登录回调函数
+            }, {scope: 'public_profile,email'});  //需要获取的信息scope
+        });
+
+        var statusChangeCallback = function (response) {
+            if (response.status === 'connected') {
+                var accessToken = response.authResponse.accessToken; //取得 accessToken
+
+                FB.api('/me?fields=name,email', function (response) { // /me为API指定的调用方法，用于获取登陆用户相关信息
+                    if (response.email != null) {
+                        $.ajax({
+                            url: "{{ url_for('mall.fb_login') }}",
+                            data: {
+                                fb_status: 'connected',
+                                nickname: response.name,
+                                fb_email: response.email,
+                                fb_token: accessToken,
+                                userType: 'Facebook'
+                            },
+                            dataType: "json",
+                            type: "post",
+                            success: function (data) {
+                                if (data.code === 200) {
+                                    window.location.reload(true);
+                                }
+                            },
+                            error: function (data) {
+                                if (data.code === 400){
+                                    alert(data.msg);
+                                    window.location.reload(true);
+                                }
+                            }
+                        });
+                    } else {
+                        alert("请同意授权！");
+                    }
+                });
+            }
+        };
+
+    </script>
+{% endblock %}

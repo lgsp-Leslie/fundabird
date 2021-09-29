@@ -1,0 +1,649 @@
+{% extends 'foreground/base.html' %}
+{% block title %}
+    Group Deals —— {{ product_obj.title }}
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foreground/groupdeals_detail.css') }}" />
+{% endblock %}
+{% block content %}
+    <section class="section1">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="{{ url_for('mall.index') }}">Home</a>
+                </li>
+                <li>
+                    <a href="{{ url_for('mall.group_deals_list') }}">Desgin & Tech</a>
+                </li>
+                <li class="active">{{ product_obj.title }}</li>
+            </ol>
+
+            <h1 class="title">{{ product_obj.title }}</h1>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-8">
+                    <div id="carousel_slide" class="carousel slide">
+                        <!-- Indicators -->
+                        <ol class="carousel-indicators">
+                            {% if media_count %}
+                                {% for i in range(media_count) %}
+                                    {% if loop.index0 == 0 %}
+                                    <li data-target="#carousel_slide" data-slide-to="0" class="active"></li>
+                                    {% else %}
+                                    <li data-target="#carousel_slide" data-slide-to="{{ i }}"></li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </ol>
+
+                        <!-- Wrapper for slides -->
+                        <div class="carousel-inner" id="carousel" role="listbox">
+                            {% if i_list %}
+                                {% for item in i_list %}
+                                    {% if loop.index0 == 0 %}
+                                        <div class="item active">
+                                            <img class="img-responsive" src="{{ url_for('static', filename=item) }} ">
+                                        </div>
+                                    {% else %}
+                                        <div class="item">
+                                            <img src="{{ url_for('static', filename=item) }} ">
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                            {% if v_list %}
+                                {% for item in v_list %}
+                                <div class="item">
+                                    {{ item | safe }}
+                                </div>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4">
+                    <p class="text">{{ product_obj.title }}</p>
+                    <div class="wish_list">
+                        <a href="">Price Match Guarantee</a>
+                        <a href=""><span class="glyphicon glyphicon-heart"></span>Add to Wish List</a>
+                    </div>
+                    <div class="money">
+                        <span>${{ product_obj.current_price / 100 }}</span>
+                        {% if product_obj.historical_price %}
+                        <div>
+                            <p class="text">Was ${{ product_obj.historical_price / 100 }}</p>
+                            <span class="label">Saving {{ product_obj.discount }}% OFF</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% if product_obj.status.value == 'Finish' %}
+                    <div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ product_obj.sales_volume }}" aria-valuemin="0" aria-valuemax="{{ product_obj.total }}" style="width: {{ product_obj.sales_volume / product_obj.total * 100 }}%;"></div>
+                        </div>
+                        <div class="time">
+                            <div>
+                                The goal is archived!
+                            </div>
+                            <div data-time="{{ product_obj.end_time }}">
+                                End in: {{ product_obj.end_time }}
+                            </div>
+                        </div>
+                        <a href="" class="secure_btn">Deals Done</a>
+                    </div>
+                    {% else %}
+                    <div>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ product_obj.sales_volume }}" aria-valuemin="0" aria-valuemax="{{ product_obj.total }}" style="width: {{ product_obj.sales_volume / product_obj.total * 100 }}%;"></div>
+                        </div>
+                        <div class="time">
+                            <div>
+                                {{ product_obj.sales_volume }} position of {{ product_obj.total }}
+                            </div>
+                            <div data-time="{{ product_obj.end_time }}">
+                                End in: {{ product_obj.end_time.strftime('%Y/%m/%d') }}
+                            </div>
+                        </div>
+                        <a href="" class="secure_btn">Secure the deal NOW!</a>
+                    </div>
+                    {% endif %}
+
+
+                    <hr />
+                    <div class="buy">
+                        <div>
+                            <img src="{{ url_for('static', filename='images/foreground/base/cons.png') }}" class="img-circle" />
+                            <p>Reward 3
+                                <a class="coins" href="">BIRDIE COINS</a>
+                            </p>
+                        </div>
+                        <a href="">{{ product_obj.source }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="section2">
+        <div class="container">
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#product" aria-controls="product" role="tab" data-toggle="tab">Product</a>
+                </li>
+                <li role="presentation">
+                    <a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">Comments</a>
+                </li>
+            </ul>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-8">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="product">
+                            {{ product_obj.content | safe }}
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="comments">
+                            {% if g.user %}
+                            <div class="login">
+                                <textarea class="form-control" rows="" cols="" placeholder="Text something…"></textarea>
+                                <a href="javascript:;" class="post_btn">Post Comments</a>
+                            </div>
+                            {% else %}
+                            <div class="logout">Only user can post comments.
+                                <a href="">Log in</a>
+                            </div>
+                            {% endif %}
+
+                            <div class="reply-list">
+
+                                <div class="r-item">
+                                    <div class="user-operate">
+                                        <div>
+                                            <div class="user-avatar">
+                                                <img class="img-circle" src="../img/test/test_img.png" />
+                                                <div class="circle"></div>
+                                            </div>
+                                            <div class="user-info">
+                                                <p class="user-username">Jstion omu / Supporter</p>
+                                                <p class="user-time">2h ago</p>
+                                            </div>
+                                        </div>
+                                        <a href="#reply-id1" class="reply_btn">Reply</a>
+                                    </div>
+                                    <hr />
+                                    <p class="r-text">
+                                        A few days ago I noticed that my watch had stopped working. I assumed it was the battery so I took it to a local jeweller. They opened the back and tested the battery and found that it was still quite strong.
+                                    </p>
+                                    <hr />
+
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="login hidden" id="reply-id1">
+                                        <textarea class="form-control" rows="" cols="" placeholder="Text something…"></textarea>
+                                        <a href="javascript:;" class="post_btn">Post Comments</a>
+                                    </div>
+                                </div>
+                                <div class="r-item">
+                                    <div class="user-operate">
+                                        <div>
+                                            <div class="user-avatar">
+                                                <img class="img-circle" src="../img/test/test_img.png" />
+                                                <div class="circle"></div>
+                                            </div>
+                                            <div class="user-info">
+                                                <p class="user-username">Jstion omu / Supporter</p>
+                                                <p class="user-time">2h ago</p>
+                                            </div>
+                                        </div>
+                                        <a href="#reply-id2" class="reply_btn">Reply</a>
+                                    </div>
+                                    <hr />
+                                    <p class="r-text">
+                                        A few days ago I noticed that my watch had stopped working. I assumed it was the battery so I took it to a local jeweller. They opened the back and tested the battery and found that it was still quite strong.
+                                    </p>
+                                    <hr />
+
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="login hidden" id="reply-id2">
+                                        <textarea class="form-control" rows="" cols="" placeholder="Text something…"></textarea>
+                                        <a href="javascript:;" class="post_btn">Post Comments</a>
+                                    </div>
+                                </div>
+                                <div class="r-item">
+                                    <div class="user-operate">
+                                        <div>
+                                            <div class="user-avatar">
+                                                <img class="img-circle" src="../img/test/test_img.png" />
+                                                <div class="circle"></div>
+                                            </div>
+                                            <div class="user-info">
+                                                <p class="user-username">Jstion omu / Supporter</p>
+                                                <p class="user-time">2h ago</p>
+                                            </div>
+                                        </div>
+                                        <a href="#reply-id3" class="reply_btn">Reply</a>
+                                    </div>
+                                    <hr />
+                                    <p class="r-text">
+                                        A few days ago I noticed that my watch had stopped working. I assumed it was the battery so I took it to a local jeweller. They opened the back and tested the battery and found that it was still quite strong.
+                                    </p>
+                                    <hr />
+
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="login hidden" id="reply-id3">
+                                        <textarea class="form-control" rows="" cols="" placeholder="Text something…"></textarea>
+                                        <a href="javascript:;" class="post_btn">Post Comments</a>
+                                    </div>
+                                </div>
+                                <div class="r-item">
+                                    <div class="user-operate">
+                                        <div>
+                                            <div class="user-avatar">
+                                                <img class="img-circle" src="../img/test/test_img.png" />
+                                                <div class="circle"></div>
+                                            </div>
+                                            <div class="user-info">
+                                                <p class="user-username">Jstion omu / Supporter</p>
+                                                <p class="user-time">2h ago</p>
+                                            </div>
+                                        </div>
+                                        <a href="#reply-id4" class="reply_btn">Reply</a>
+                                    </div>
+                                    <hr />
+                                    <p class="r-text">
+                                        A few days ago I noticed that my watch had stopped working. I assumed it was the battery so I took it to a local jeweller. They opened the back and tested the battery and found that it was still quite strong.
+                                    </p>
+                                    <hr />
+
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="login hidden" id="reply-id4">
+                                        <textarea class="form-control" rows="" cols="" placeholder="Text something…"></textarea>
+                                        <a href="javascript:;" class="post_btn">Post Comments</a>
+                                    </div>
+                                </div>
+                                <div class="r-item">
+                                    <div class="user-operate">
+                                        <div>
+                                            <div class="user-avatar">
+                                                <img class="img-circle" src="../img/test/test_img.png" />
+                                                <div class="circle"></div>
+                                            </div>
+                                            <div class="user-info">
+                                                <p class="user-username">Jstion omu / Supporter</p>
+                                                <p class="user-time">2h ago</p>
+                                            </div>
+                                        </div>
+                                        <a href="#reply-id5" class="reply_btn">Reply</a>
+                                    </div>
+                                    <hr />
+                                    <p class="r-text">
+                                        A few days ago I noticed that my watch had stopped working. I assumed it was the battery so I took it to a local jeweller. They opened the back and tested the battery and found that it was still quite strong.
+                                    </p>
+                                    <hr />
+
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="r-info">
+                                        <div class="user-operate">
+                                            <div>
+                                                <div class="user-avatar">
+                                                    <img class="img-circle" src="../img/test/test_img.png" />
+                                                    <div class="circle"></div>
+                                                </div>
+                                                <div class="user-info">
+                                                    <p class="user-username">Jstion omu / Supporter</p>
+                                                    <p class="user-time">2h ago</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="r-text bg-grey">
+                                            Very sorry to hear that! We just sent you an email.
+                                        </div>
+                                    </div>
+                                    <div class="login hidden" id="reply-id5">
+                                        <textarea class="form-control" rows="" cols="" placeholder="Text something…"></textarea>
+                                        <a href="javascript:;" class="post_btn">Post Comments</a>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-4">
+                    <div class="right_1">
+                        <p class="sub-title">
+                            Product Description
+                        </p>
+                        <p class="text">
+                            {{ product_obj.desc }}
+                        </p>
+                        <p class="sub-title">
+                            Source
+                        </p>
+                        <div class="source">
+{#                            <img class="img-responsive" src="../img/desgin/amazon.png" />#}
+                            {{ product_obj.source }}
+                        </div>
+                        <p class="sub-title">
+                            Category
+                        </p>
+                        <div class="category">
+                            <label>{{ product_obj.product_category.name }}</label>
+                        </div>
+                        <p class="sub-title">
+                            Date
+                        </p>
+                        <p class="text">
+                            {{ product_obj.start_time.strftime('%Y/%m/%d') }} - {{ product_obj.end_time.strftime('%Y/%m/%d') }}
+                        </p>
+                        <p class="sub-title">
+                            Share Product
+                        </p>
+                        <div class="share">
+                            <a href=""><img class="img-responsive" src="{{ url_for('static', filename='images/foreground/base/Facebook.png') }}" alt="Facebook" /></a>
+                            <a href=""><img class="img-responsive" src="{{ url_for('static', filename='images/foreground/base/Twitter.png') }}" alt="Twitter" /></a>
+                            <a href=""><img class="img-responsive" src="{{ url_for('static', filename='images/foreground/base/Instagram.png') }}" alt="Instagram" /></a>
+                            <a href=""><img class="img-responsive" src="{{ url_for('static', filename='images/foreground/base/Wechat.png') }}" alt="Wechat" /></a>
+                        </div>
+                    </div>
+                    <div class="right_2">
+                        <p class="sub-title">
+                            Recommend Group Deals
+                        </p>
+                        {% if recommend %}
+                            {% for item in recommend %}
+                            <div class="recommend">
+                            <div class="img">
+                                {% if item.thumbnail %}
+                                    <img class="img-responsive"
+                                         src="{{ url_for('static', filename=item.thumbnail) }}"/>
+                                    {% else %}
+                                    <img class="img-responsive"
+                                         src="{{ url_for('static', filename='images/foreground/test/test_img1440-900.png') }}"/>
+                                    {% endif %}
+                            </div>
+                            <div class="content">
+                                <h3 class="title">{{ item.title }}</h3>
+                                <p class="text">{{ item.desc }}</p>
+
+                                <div class="money">
+                                    <div>${{ item.current_price / 100 }}</div>
+                                    <div>
+                                        <p>Was ${{ item.historical_price / 100 }}</p>
+                                        <span class="label">{{ item.discount }}% OFF</span>
+                                    </div>
+                                </div>
+
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                    </div>
+                                </div>
+
+                                <div class="time">
+                                    <div>
+                                        {{ item.sales_volume }} position of {{ item.total }}
+                                    </div>
+                                    <div>
+                                        End in: {{ item.end_time.strftime('%Y/%m/%d') }}
+                                    </div>
+                                </div>
+                                <p class="source">
+                                    {{ item.source }}
+                                </p>
+                            </div>
+                        </div>
+                            {% endfor %}
+                        {% endif %}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block js %}
+    <script src="{{ url_for('static', filename='js/foreground/jquery.simpleLoadMore.js') }}"></script>
+    <script>
+			$('.reply-list').simpleLoadMore({
+				item: 'div.r-item',
+				count: 2
+			});
+			$('.reply_btn').click(function() {
+				r_id = $(this).attr('href')
+				$(r_id).removeClass('hidden')
+			})
+		</script>
+{% endblock %}

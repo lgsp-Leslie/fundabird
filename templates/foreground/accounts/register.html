@@ -1,0 +1,70 @@
+{% extends 'foreground/base.html' %}
+{% block title %}
+    Sign Up
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foreground/signup.css') }}"/>
+{% endblock %}
+{% block content %}
+    <section class="section1">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="{{ url_for('mall.index') }}">Home</a>
+                </li>
+                <li class="active">Sign Up</li>
+            </ol>
+
+            <h1 class="title hidden-xs">Sign Up</h1>
+            <div class="row">
+                <div class="col-xs-12 col-sm-7 col-sm-push-5">
+                    <img src="{{ url_for('static', filename='images/foreground/sign/signup.png') }}"
+                         class="img-responsive img"/>
+                </div>
+                <div class="col-xs-12 col-sm-5 col-sm-pull-7">
+                    <h1 class="title hidden-sm hidden-md hidden-lg">Sign Up</h1>
+                    <p class="text">If you already account&nbsp;?&nbsp;
+                        <a href="{{ url_for('mall.login') }}">Please sign in account>>></a>
+                    </p>
+                    {% include 'components/flash_messages.html' %}
+                    <div>
+                        <form method="post">
+                            {{ form.csrf_token }}
+                            <div class="form-group">
+                                {{ form.email }}
+                                {{ form_field_errors(form.email.errors) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.password }}
+                                {{ form_field_errors(form.password.errors) }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.re_password }}
+                                {{ form_field_errors(form.re_password.errors) }}
+                            </div>
+                            {{ form.submit }}
+                        </form>
+                        <div>
+                            <img src="{{ url_for('static', filename='images/foreground/sign/line.png') }}"
+                                 class="img-responsive center-block"/>
+                        </div>
+                        <div class="third_party_logins">
+                            <a href=""><img src="{{ url_for('static', filename='images/foreground/base/facebook_login.png') }}"
+                                            alt="facebook"/></a>
+                            <a href=""><img src="{{ url_for('static', filename='images/foreground/base/google_login.png') }}"
+                                            alt="google"/></a>
+                            <a href=""><img src="{{ url_for('static', filename='images/foreground/base/apple_login.png') }}"
+                                            alt="apple"/></a>
+                        </div>
+                        <p class="policy">By Sign Up , you agree to our
+                            <a href="">Privacy Policy</a>,
+                            <a href="">Cookie Policy and Terms of Use.</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+{% endblock %}

@@ -1,0 +1,102 @@
+.section1 .breadcrumb {
+	background-color: transparent;
+	padding: 50px 0 26px;
+}
+
+.section1 .breadcrumb a {
+	color: #D8D8D8;
+}
+
+.section1 .breadcrumb .active {
+	color: #0C0C0C
+}
+
+.section1 h1.title {
+	margin-top: 0;
+	margin-bottom: 18px;
+	font-weight: bold;
+	line-height: 44px;
+}
+
+.section1 p.text {
+	margin-bottom: 40px;
+}
+
+.section1 p.text,
+.section1 p.text a {
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 18px;
+}
+
+.section1 p.text a {
+	text-decoration: underline;
+	color: #3B61D9;
+}
+
+.section1 div.form-group {
+	margin-bottom: 30px;
+}
+
+.section1 div.form-group input {
+	border: 1px solid #000000;
+	border-radius: 8px;
+}
+
+.section1 input[type='submit'].btn-block {
+	margin-top: 40px;
+	margin-bottom: 30px;
+	background: #000000;
+	border-radius: 8px;
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 22px;
+	text-align: center;
+	color: #FFFFFF;
+}
+
+.section1 button:hover {
+	color: #FFF;
+}
+
+.section1 .third_party_logins {
+	margin-top: 28px;
+	margin-bottom: 50px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.section1 .third_party_logins img {
+	width: 100px;
+	height: 40px;
+}
+
+.section1 .policy {
+	margin-bottom: 0;
+}
+
+.section1 .policy a {
+	text-decoration: underline;
+}
+
+.section1 .policy,
+.section1 .policy a {
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 14px;
+	color: #898989;
+}
+
+.section1 .text-right {
+	margin-top: 9px;
+	margin-bottom: 31px;
+}
+
+@media only screen and (max-width: 640px) {
+	.section1 h1.title {
+		font-size: 26px;
+	}
+	.section1 .img {
+		margin-bottom: 15px;
+	}
+}

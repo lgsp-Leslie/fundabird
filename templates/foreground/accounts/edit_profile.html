@@ -1,0 +1,236 @@
+{% extends 'foreground/base.html' %}
+{% block title %}
+    Edit Profile
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/foreground/edit_profile.css') }}"/>
+{% endblock %}
+{% block content %}
+    <section class="section1">
+        <div class="container">
+            <h1 class="title">Eidt Profile</h1>
+            <div class="wrapper wrapper03" id="wrapper03">
+                <div class="scroller">
+                    <ul class="clearfix">
+                        <li class="active">
+                            <a href="#account_setting" data-toggle="tab">Account setting</a>
+                        </li>
+                        <li>
+                            <a href="#payment_methods" data-toggle="tab">Payment methods</a>
+                        </li>
+                        <li>
+                            <a href="#shipping_address" data-toggle="tab">Shipping address</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tab-content">
+                {% include 'components/flash_messages.html' %}
+                <div role="tabpanel" class="tab-pane active" id="account_setting">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <h2 class="title">Profile</h2>
+                            <form method="post" enctype="multipart/form-data">
+                                <div class="user-info">
+                                    <div class="u-avatar">
+                                        {% if g.user.avatar %}
+                                            <img class="img-circle" alt="avatar" src="{{ url_for('static', filename=g.user.avatar) }}"/>
+                                        {% else %}
+                                            <img class="img-circle" alt="" src="{{ url_for('static', filename='images/foreground/base/4.jpg') }}">
+                                        {% endif %}
+                                        <div class="upload_btn">
+                                            <div>
+                                                <a href="javascript:;" class="file_btn" onclick="openBrowse()">Choose an mage from your computer</a>
+                                                <input type="file" class="hidden" id="fileElem" name="avatar" accept="image/jpg,image/jpeg,image/png">
+                                            </div>
+                                            <p>JPEG, PNG, 20MB File Limit</p>
+                                        </div>
+                                    </div>
+                                    <div class="u-cons">
+                                        <img src="{{ url_for('static', filename='images/foreground/base/cons.png') }}" class="img-circle"/>
+                                        <span>Currently: {{ g.user.coins | default('0') }} COINS</span>
+                                    </div>
+                                </div>
+                                <div class="update_info">
+                                    <input class="form-control" type="text" placeholder="Name" name="nickname" value="{{ g.user.nickname | default('', boolean=True) }}"/>
+                                    <input class="form-control" type="email" placeholder="Email" name="email" value="{{ g.user.email }}"/>
+                                    <input class="form-control pull-right" type="submit" value="Save"/>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </form>
+                            <div class="update_pwd">
+                                <h2 class="title">Password Change</h2>
+                                <form method="post" action="{{ url_for('mall.update_password') }}">
+                                    <input class="form-control" type="password" placeholder="Current Password" name="old_pwd"/>
+                                    <input class="form-control" type="password" placeholder="New Password" name="new_pwd"/>
+                                    <input class="form-control" type="password" placeholder="Confirm Password" name="re_new_pwd"/>
+                                    <input class="form-control pull-right" type="submit" value="Save"/>
+                                </form>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <div class="oprate">
+                                <p class="sub-title">Privacy</p>
+                                <p class="text">
+                                    <a href="">Opt out of Following</a>
+                                </p>
+                                <p class="text">
+                                    <a href="">Turn off recommendations</a>
+                                </p>
+                                <p class="text">
+                                    <a href="">Request my personal data</a>
+                                </p>
+                                <p class="text">
+                                    <a href="">Opt in to Kickstarter research</a>
+                                </p>
+                                <br/>
+                                <p class="sub-title">Facebook</p>
+                                <p class="text">
+                                    <a href="">Disconnect this account from Facebook</a>
+                                </p>
+                                <br/>
+                                <p class="sub-title">Security</p>
+                                <p class="text">
+                                    <a href="">Set up two-factor authentication Off</a>
+                                </p>
+                                <p class="text">
+                                    <a href="">Log me out on all other devices</a>
+                                </p>
+                                <br/>
+                                <p class="sub-title">Delete Account</p>
+                                <p class="text">
+                                    <a href="">Delete my Kickstarter account</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="payment_methods">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <h2 class="title">New Payment</h2>
+                            <div class="create_payment">
+                                <form method="post" action="{{ url_for('mall.add_card') }}">
+                                    <input class="form-control" type="text" placeholder="Card Number" name="card_number"/>
+                                    <input class="form-control" type="text" placeholder="Name On Card" name="card_name"/>
+                                    <div class="card_code">
+                                        <input class="form-control" type="text" placeholder="MM/YY" name="card_exp"/>
+                                        <input class="form-control" type="text" placeholder="CW" name="card_cw"/>
+                                    </div>
+{#                                    <input class="form-control" type="text" placeholder="Zip/Postal code" name="postal_code"/>#}
+                                    <input class="form-control pull-right" type="submit" value="Save"/>
+                                </form>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <h2 class="title">Saved Card</h2>
+                            {% for item in card %}
+                            <div class="card_info">
+                                {% if item.card_name == 'Visa' %}
+                                    <img src="{{ url_for('static', filename='/images/foreground/base/Visa.png') }}" class="img-responsive"/>
+                                {% elif item.card_name == 'American Express' %}
+                                    <img src="{{ url_for('static', filename='/images/foreground/base/American_Express.png') }}" class="img-responsive"/>
+                                {% elif item.card_name == 'Mastercard' %}
+                                    <img src="{{ url_for('static', filename='/images/foreground/base/Mastercard.png') }}" class="img-responsive"/>
+                                {% endif %}
+                                <div>
+                                    <p>Card ending in {{ item.card_number | card_number_format }}</p>
+                                    <p>Expires {{ item.card_exp }}</p>
+                                </div>
+                                <p><a class="del-card" href="javascript:;" data-id="{{ item.id }}">Remove this card</a></p>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="shipping_address">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-8">
+                            <h2 class="title">New Address</h2>
+                            <div class="create_address">
+                                <form method="post">
+
+                                    <div class="create_addr">
+                                        <input class="form-control" type="text" placeholder="First Name"/>
+                                        <input class="form-control" type="text" placeholder="Last Name"/>
+                                    </div>
+                                    <div class="create_addr">
+                                        <input class="form-control" type="text" placeholder="Phone Number"/>
+                                        <input class="form-control" type="email" placeholder="Email"/>
+                                    </div>
+                                    <input class="form-control" type="text" placeholder="Address 1"/>
+                                    <input class="form-control" type="text" placeholder="Address 2"/>
+                                    <div class="create_addr">
+                                        <input class="form-control" type="text" placeholder="State / Zipcode"/>
+                                        <select class="form-control">
+                                            <option value="0">Country</option>
+                                        </select>
+                                    </div>
+                                    <input class="form-control pull-right" type="submit" value="Save"/>
+                                </form>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-4">
+                            <h2 class="title">Saved address</h2>
+                            <div class="addr_info">
+                                <div>
+                                    <p>LEI LI</p>
+                                    <p>1857 Nausika Ave</p>
+                                    <p>Rowland Heights, CA</p>
+                                    <p>91748-3140, US</p>
+                                    <p>6508669332</p>
+                                </div>
+                                <p><a href="javascript:;">Delete</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}
+{% block js %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/foreground/flexible.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/foreground/iscroll.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/foreground/navbarscroll.js') }}"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.wrapper').navbarscroll();
+        });
+    </script>
+
+    <script type="text/javascript">
+        function openBrowse() {
+            var ie = navigator.appName == "Microsoft Internet Explorer" ? true : false;
+            if (ie) {
+                document.getElementById("fileElem").click();
+            } else {
+                var a = document.createEvent("MouseEvents");
+                a.initEvent("click", true, true);
+                document.getElementById("fileElem").dispatchEvent(a);
+            }
+        }
+    </script>
+
+    <script>
+    $('.del-card').click(function () {
+        let flag = confirm('Are you sure to delete this card?')
+        if (flag){
+            let card_id = $(this).attr('data-id')
+            $.get(
+                "{{ url_for('mall.del_card') }}",
+                {
+                    "card_id": card_id,
+                }
+            )
+        }
+    })
+    </script>
+
+{% endblock %}
